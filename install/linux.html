@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1 Linux 下安装GMT &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="3 安装" href="../install.html"/>
+        <link rel="next" title="3.2 Linux 下的 GMT 中文支持" href="cn-linux.html"/>
+        <link rel="prev" title="3 安装" href="../install.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../install.html">3 安装</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1 Linux 下安装GMT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.1.1 安装预编译版</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.2 使用社区提供的快速安装脚本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.3 从源码编译</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">解决依赖关系</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">下载</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gmt">安装GMT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">修改环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">测试是否安装成功</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cn-linux.html">3.2 Linux 下的 GMT 中文支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html">3.3 Windows 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cn-windows.html">3.4 Windows 下的 GMT 中文支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macOS.html">3.5 macOS 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datadir.html">3.6 GMT 数据库的建立</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory-tree.html">3.7 目录结构</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../install.html">3 安装</a> &raquo;</li>
+        
+      <li>3.1 Linux 下安装GMT</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/install/linux.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="cn-linux.html" class="btn btn-neutral float-right" title="3.2 Linux 下的 GMT 中文支持" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../install.html" class="btn btn-neutral" title="3 安装" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linux-gmt">
+<h1>3.1 Linux 下安装GMT<a class="headerlink" href="#linux-gmt" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>3.1.1 安装预编译版<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>大多数 Linux 发行版都可以通过系统自带的软件包管理器直接安装 GMT。但通常系统软件
+源里自带的 GMT 版本都比较老，因而如果可能，还是建议 Linux 用户手动编译安装。</p>
+<p>CentOS 7 用户:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo yum install epel-release
+sudo yum install GMT GMT-devel GMT-doc
+sudo yum install dcw-gmt gshhg-gmt-nc4 gshhg-gmt-nc4-full gshhg-gmt-nc4-high
+</pre></div>
+</div>
+<p>Ubuntu 用户:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install gmt gmt-dcw gmt-gshhg
+</pre></div>
+</div>
+<p>其他发行版用户可以到 <a class="reference external" href="https://pkgs.org/">https://pkgs.org/</a> 查询自己的 Linux 发行版软件源中是否包含
+GMT 以及 GMT 的具体版本。</p>
+</div>
+<div class="section" id="id2">
+<h2>3.1.2 使用社区提供的快速安装脚本<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT 中文社区为常见的 Linux 发行版提供了 GMT 最新版本的安装脚本，见
+<a class="reference external" href="https://github.com/gmt-china/gmt-easy-installer">https://github.com/gmt-china/gmt-easy-installer</a>。</p>
+<p>用户需要下载两个安装脚本：</p>
+<ol class="arabic simple">
+<li>自己的发行版对应的安装脚本，比如 <code class="docutils literal"><span class="pre">ubuntu-installer.sh</span></code>， 用于安装 GMT
+所需的依赖</li>
+<li>GMT安装脚本 <code class="docutils literal"><span class="pre">GMT-installer.sh</span></code> 用于编译安装GMT源码</li>
+</ol>
+<p>并依次执行 <code class="docutils literal"><span class="pre">ubuntu-installer.sh</span></code> 和 <code class="docutils literal"><span class="pre">GMT-installer.sh</span></code> 即可。</p>
+</div>
+<div class="section" id="id3">
+<h2>3.1.3 从源码编译<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>为了使用最新版本的 GMT，建议用户从源码编译 GMT。</p>
+<div class="section" id="id4">
+<h3>解决依赖关系<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>GMT 主要依赖于 cmake（&gt;=2.8.5）、fftw（&gt;=3.3）、glib2（&gt;=2.32）、
+netCDF（&gt;4.0且支持netCDF-4/HDF5）、ghostscript等。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">由于 Linux 发行版众多，以下仅所列仅供参考，请自行确认自己的发行版上软件包的
+具体名字。</p>
+</div>
+<p>对于Ubuntu/Debian:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 更新</span>
+$ sudo apt-get update
+
+<span class="c1"># 必须安装的包</span>
+$ sudo apt-get install gcc g++ cmake make libc6
+$ sudo apt-get install ghostscript
+$ sudo apt-get install libnetcdf-dev
+
+<span class="c1"># 可选包(即便安装不成功也不影响 GMT 的使用)</span>
+$ sudo apt-get install libgdal-dev python-gdal
+$ sudo apt-get install liblapack3
+$ sudo apt-get install libglib2.0-dev
+$ sudo apt-get install libpcre3-dev
+$ sudo apt-get install libfftw3-dev
+</pre></div>
+</div>
+<p>对于CentOS/RHEL/Fedora:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo yum install epel-release  <span class="c1"># CentOS用户必须先安装epel-release</span>
+<span class="c1"># 必须安装的包</span>
+$ sudo yum install gcc gcc-c++ cmake make glibc
+$ sudo yum install ghostscript
+$ sudo yum install netcdf-devel
+
+<span class="c1"># 可选包</span>
+$ sudo yum install gdal-devel gdal-python
+$ sudo yum install lapack64-devel lapack-devel
+$ sudo yum install glib2-devel
+$ sudo yum install pcre-devel
+$ sudo yum install fftw-devel
+</pre></div>
+</div>
+<p>确认 netCDF 支持 netCDF-4/HDF5 格式:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ nc-config --has-nc4
+yes
+</pre></div>
+</div>
+<p>若输出为 <code class="docutils literal"><span class="pre">yes</span></code> 则可正常安装 GMT，否则无法正常安装。</p>
+</div>
+<div class="section" id="id5">
+<h3>下载<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>Linux安装GMT需要下载三个文件（这里提供的国内下载源）：</p>
+<ol class="arabic simple">
+<li>GMT源码： <a class="reference external" href="http://mirrors.ustc.edu.cn/gmt/gmt-5.4.3-src.tar.gz">http://mirrors.ustc.edu.cn/gmt/gmt-5.4.3-src.tar.gz</a></li>
+<li>全球海岸线数据GSHHG： <a class="reference external" href="http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz">http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz</a></li>
+<li>全球数字图表DCW： <a class="reference external" href="http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.2.tar.gz">http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.2.tar.gz</a></li>
+</ol>
+</div>
+<div class="section" id="gmt">
+<h3>安装GMT<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h3>
+<p>将下载的三个压缩文件放在同一个目录里，按照如下步骤进行安装：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 解压三个压缩文件</span>
+$ tar -xvf gmt-5.4.3-src.tar.gz
+$ tar -xvf gshhg-gmt-2.3.7.tar.gz
+$ tar -xvf dcw-gmt-1.1.2.tar.gz
+
+<span class="c1"># 将gshhg和dcw数据复制到gmt的share目录下</span>
+$ mv gshhg-gmt-2.3.7 gmt-5.4.3/share/gshhg
+$ mv dcw-gmt-1.1.2 gmt-5.4.3/share/dcw-gmt
+
+<span class="c1"># 切换到gmt源码目录下</span>
+$ <span class="nb">cd</span> gmt-5.4.3
+
+<span class="c1"># 新建用户配置文件</span>
+$ gedit cmake/ConfigUser.cmake
+</pre></div>
+</div>
+<p>向 <code class="docutils literal"><span class="pre">cmake/ConfigUser.cmake</span></code> 文件中加入如下语句:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="o">(</span>CMAKE_INSTALL_PREFIX <span class="s2">&quot;/opt/GMT-5.4.3&quot;</span><span class="o">)</span>
+<span class="nb">set</span> <span class="o">(</span>GMT_INSTALL_MODULE_LINKS FALSE<span class="o">)</span>
+<span class="nb">set</span> <span class="o">(</span>COPY_GSHHG TRUE<span class="o">)</span>
+<span class="nb">set</span> <span class="o">(</span>COPY_DCW TRUE<span class="o">)</span>
+<span class="nb">set</span> <span class="o">(</span>GMT_USE_THREADS TRUE<span class="o">)</span>
+</pre></div>
+</div>
+<p>其中，</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CMAKE_INSTALL_PREFIX</span></code> 用于设置GMT的安装路径，上面的语句会将GMT安装在
+<code class="docutils literal"><span class="pre">/opt/GMT-5.4.3</span></code> 目录下，用户可以自行修改为其他路径。没有 root 权限的
+一般用户，可以将安装路径设置为 <code class="docutils literal"><span class="pre">/home/xxx/software/GMT-5.4.3</span></code> 等有可读写
+权限的路径；</li>
+<li><code class="docutils literal"><span class="pre">GMT_INSTALL_MODULE_LINKS</span></code> 为FALSE，表明不在GMT的bin目录下建立命令的软链接，
+也可设置为TRUE</li>
+<li><code class="docutils literal"><span class="pre">COPY_GSHHG</span></code> 为TRUE会将GSHHG数据复制到 <code class="docutils literal"><span class="pre">GMT/share/coast</span></code> 下</li>
+<li><code class="docutils literal"><span class="pre">COPY_DCW</span></code> 为TRUE会将DCW数据复制到 <code class="docutils literal"><span class="pre">GMT/share/dcw</span></code> 下</li>
+<li><code class="docutils literal"><span class="pre">GMT_USE_THREADS</span></code> 表示是否开启某些模块的并行功能</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">CentOS 6 用户需要将用户配置文件的最后一行改为 <code class="docutils literal"><span class="pre">set</span> <span class="pre">(GMT_USE_THREADS</span> <span class="pre">FALSE)</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p>此处为了便于一般用户理解，只向 <code class="docutils literal"><span class="pre">cmake/ConfigUser.cmake</span></code> 中写入了必要的5行语句。</p>
+<p class="last">对于高级用户而言，可以直接在 GMT 提供的配置模板基础上进行更多配置。将
+<code class="docutils literal"><span class="pre">cmake/ConfigUserTemplate.cmake</span></code> 复制为 <code class="docutils literal"><span class="pre">cmake/ConfigUser.cmake</span></code> ，
+然后根据配置文件中的大量注释说明信息自行修改配置文件。</p>
+</div>
+<p>继续执行如下命令以检查GMT的依赖关系:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 注意，此处新建的 build 文件夹位于 gmt-5.4.3 目录下，不是 gmt-5.4.1/cmake 目录下</span>
+$ mkdir build
+$ <span class="nb">cd</span> build/
+$ cmake ..
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">cmake</span> <span class="pre">..</span></code> 会检查GMT对软件的依赖关系，我的检查结果如下:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>*  Options:
+*  Found GSHHG database       : /home/user/GMT/gmt-5.4.3/share/gshhg <span class="o">(</span><span class="m">2</span>.3.7<span class="o">)</span>
+*  Found DCW-GMT database     : /home/user/GMT/gmt-5.4.3/share/dcw-gmt
+*  NetCDF library             : /usr/lib64/libnetcdf.so
+*  NetCDF include dir         : /usr/include
+*  GDAL library               : /usr/lib64/libgdal.so
+*  GDAL include dir           : /usr/include/gdal
+*  FFTW library               : /usr/lib64/libfftw3f.so
+*  FFTW include dir           : /usr/include
+*  Accelerate Framework       :
+*  Regex support              : PCRE <span class="o">(</span>/usr/lib64/libpcre.so<span class="o">)</span>
+*  ZLIB library               : /usr/lib64/libz.so
+*  ZLIB include dir           : /usr/include
+*  LAPACK library             : yes
+*  License restriction        : no
+*  Triangulation method       : Shewchuk
+*  OpenMP support             : enabled
+*  GLIB GTHREAD support       : enabled
+*  PTHREAD support            : enabled
+*  Build mode                 : shared
+*  Build GMT core             : always <span class="o">[</span>libgmt.so<span class="o">]</span>
+*  Build PSL library          : always <span class="o">[</span>libpostscriptlight.so<span class="o">]</span>
+*  Build GMT supplements      : yes <span class="o">[</span>supplements.so<span class="o">]</span>
+*  Build GMT Developer        : yes
+*  Build proto supplements    : none
+*
+*  Locations:
+*  Installing GMT in          : /opt/GMT-5.4.3
+*  GMT_DATADIR                : /opt/GMT-5.4.3/share
+*  GMT_DOCDIR                 : /opt/GMT-5.4.3/share/doc
+*  GMT_MANDIR                 : /opt/GMT-5.4.3/share/man
+-- Configuring <span class="k">done</span>
+-- Generating <span class="k">done</span>
+</pre></div>
+</div>
+<p>正常情况下的检查结果应该与上面给出的类似。若出现问题，则需要检查之前的步骤是否
+有误，检查完毕后重新执行 <code class="docutils literal"><span class="pre">cmake</span> <span class="pre">..</span></code> ，直到出现类似的检查结果。检查完毕后，
+开始编译和安装:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ make
+$ sudo make install
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>对于多核计算机，可以使用如下命令实现并行编译以减少编译时间:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ make -j
+$ sudo make -j install
+</pre></div>
+</div>
+<p class="last">但并行编译可能在个别发行版上无法使用。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>修改环境变量<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>修改环境变量并使其生效：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;export GMT5HOME=/opt/GMT-5.4.3&#39;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=${GMT5HOME}/bin:$PATH&#39;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">echo</span> <span class="s1">&#39;export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT5HOME}/lib64&#39;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">exec</span> <span class="nv">$SHELL</span> -l
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>测试是否安装成功<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>在终端键入 <code class="docutils literal"><span class="pre">gmt</span></code> ，若出现如下输出，则安装成功:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gmt --version
+<span class="m">5</span>.4.3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cn-linux.html" class="btn btn-neutral float-right" title="3.2 Linux 下的 GMT 中文支持" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../install.html" class="btn btn-neutral" title="3 安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

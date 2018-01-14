@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.6 文字 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.7 特殊字体" href="special-fonts.html"/>
+        <link rel="prev" title="5.5 填充" href="fill.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit.html">5.1 单位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paper.html">5.2 画布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.6 文字</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.6.1 文字大小</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.6.2 字体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.6.3 填充色</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.6.4 描边</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.6.5 示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character-escape.html">5.9 转义序列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lines.html">5.10 线条属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectors.html">5.11 绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.6 文字</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/text.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="special-fonts.html" class="btn btn-neutral float-right" title="5.7 特殊字体" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fill.html" class="btn btn-neutral" title="5.5 填充" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="index-0">
+<span id="id1"></span><h1>5.6 文字<a class="headerlink" href="#index-0" title="永久链接至标题">¶</a></h1>
+<p>前面几节说了GMT中如何画线条以及如何填充颜色，这节说说文字的那些事。</p>
+<p>文字，或者称文本或字符串，主要由三个属性控制：文字大小、字体、颜色。三个属性
+之间用逗号分隔，即 <code class="docutils literal"><span class="pre">&lt;size&gt;,&lt;fonttype&gt;,&lt;fill&gt;</span></code> 。三者均是可选的，但先后顺序
+不可乱。若其中任意一个属性被省略，则使用该属性的默认值或上一次的设置值。</p>
+<div class="section" id="id2">
+<h2>5.6.1 文字大小<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>文字大小，可以理解成字号，用数字加单位表示。在不指定单位的情况下默认单位为
+<code class="docutils literal"><span class="pre">p</span></code> ，也可加上 <code class="docutils literal"><span class="pre">c</span></code> 、 <code class="docutils literal"><span class="pre">p</span></code> 或者 <code class="docutils literal"><span class="pre">i</span></code> 显式指定单位，比如 <code class="docutils literal"><span class="pre">15p</span></code> 。</p>
+<p>有些中文期刊可以会有类似“图片标题是四号字”这样的要求，这就需要知道GMT中的字体
+大小与MS Word中字号大小的对应关系。如下表所示：</p>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-number">表 5.2 </span><span class="caption-text">Word字号与GMT中字号对应关系</span><a class="headerlink" href="#id7" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="23%" />
+<col width="23%" />
+<col width="29%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字号</th>
+<th class="head">p</th>
+<th class="head">字号</th>
+<th class="head">p</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>初号</td>
+<td>42</td>
+<td>小初</td>
+<td>36</td>
+</tr>
+<tr class="row-odd"><td>一号</td>
+<td>26</td>
+<td>小一</td>
+<td>24</td>
+</tr>
+<tr class="row-even"><td>二号</td>
+<td>22</td>
+<td>小二</td>
+<td>18</td>
+</tr>
+<tr class="row-odd"><td>三号</td>
+<td>16</td>
+<td>小三</td>
+<td>15</td>
+</tr>
+<tr class="row-even"><td>四号</td>
+<td>14</td>
+<td>小四</td>
+<td>12</td>
+</tr>
+<tr class="row-odd"><td>五号</td>
+<td>10.5</td>
+<td>小五</td>
+<td>9</td>
+</tr>
+<tr class="row-even"><td>六号</td>
+<td>7.5</td>
+<td>小六</td>
+<td>6.5</td>
+</tr>
+<tr class="row-odd"><td>七号</td>
+<td>5.5</td>
+<td>八号</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>5.6.2 字体<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>大多数PostScript解释器都内置35种标准字体，GMT默认支持且只支持这35种标准字体。
+若你使用的PS解释器不支持其中某些字体，则会自动用默认字体（一般是Courier）替换
+需要的字体。</p>
+<p>下图给出了GMT支持的35种字体的列表：</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/GMT_fonts.png"><img alt="../_images/GMT_fonts.png" src="../_images/GMT_fonts.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 5.5 </span><span class="caption-text">GMT中的35种PS标准字体</span></p>
+</div>
+<p>GMT中可以用字体名（<strong>区分大小写</strong>）或对应的字体编号来指定字体 （比如
+Helvetica-Bold 或者 1 ）。上图中给出了每种字体的字体编号以及字体名称。每个字体
+名称使用的是自己相对应的字体，所以可以从图中直观地看出不同字体的区别。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">使用 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">pstext</span> <span class="pre">-L</span></code> 可以列出GMT所支持的字体及其编号。</p>
+</div>
+<p>图中大多数字体都很直观，比较特别的字体有两个，Symbol（12号）和ZapfDingbats（34号），
+前者常用于输出希腊字母，后者则用于输出特殊图案，详情见 <a class="reference internal" href="special-fonts.html"><span class="doc">特殊字体</span></a> 。</p>
+</div>
+<div class="section" id="id4">
+<h2>5.6.3 填充色<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>可以为文字指定颜色或图案，也就是常说的文字颜色，见 <a class="reference internal" href="fill.html"><span class="doc">填充</span></a> 一节。</p>
+</div>
+<div class="section" id="id5">
+<h2>5.6.4 描边<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在给文字指定填充色的同时，可以在填充色 <code class="docutils literal"><span class="pre">&lt;fill&gt;</span></code> 后加上 <code class="docutils literal"><span class="pre">=&lt;pen&gt;</span></code> 来指定文本
+轮廓（即描边）的画笔属性。 <code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> 的用法见 <a class="reference internal" href="pen.html"><span class="doc">画笔</span></a> 一节。
+比如 <code class="docutils literal"><span class="pre">red=2p,blue</span></code> 表示将文字填充为红色，并使用宽度为 <code class="docutils literal"><span class="pre">2p</span></code> 的蓝色线条给
+文字描边。若填充色 <code class="docutils literal"><span class="pre">&lt;fill&gt;</span></code> 为 <code class="docutils literal"><span class="pre">-</span></code> ，则不对文字做填充，即实现空心文字的效果。</p>
+<p>使用 <code class="docutils literal"><span class="pre">=&lt;pen&gt;</span></code> 语法绘制文本轮廓时，轮廓线条有一半宽度位于文字外部，另一半
+宽度会遮住字体。为了避免这一现象，可以使用 <code class="docutils literal"><span class="pre">=~&lt;pen&gt;</span></code> 语法，此时在绘制文字
+轮廓时只绘制文字外部的半个线宽的线条。</p>
+</div>
+<div class="section" id="id6">
+<h2>5.6.5 示例<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>下图给出了几种指定文本属性的方式：</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/GMT_text_examples.png"><img alt="../_images/GMT_text_examples.png" src="../_images/GMT_text_examples.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 5.6 </span><span class="caption-text">GMT文本属性示例</span></p>
+</div>
+<p>从下往上，一一解释一下：</p>
+<ol class="arabic simple">
+<li>字号为 <code class="docutils literal"><span class="pre">30p</span></code> ，其余使用默认值</li>
+<li>字号为 <code class="docutils literal"><span class="pre">30p</span></code> ，使用8号字体</li>
+<li>字号为 <code class="docutils literal"><span class="pre">30p</span></code> ，8号字体，颜色为红色</li>
+<li>字号为 <code class="docutils literal"><span class="pre">30p</span></code> ，5号字体，字色为蓝色，用宽度为 <code class="docutils literal"><span class="pre">1p</span></code> 的黑色实线描边</li>
+<li>与前一个相同，唯一区别在于字色为 <code class="docutils literal"><span class="pre">-</span></code> ，相当于透明色，产生空心文字</li>
+</ol>
+<p>读者可以将下面命令中 <code class="docutils literal"><span class="pre">-F+f</span></code> 后的 <code class="docutils literal"><span class="pre">&lt;font&gt;</span></code> 修改为不同的值以帮助理解本节的内容:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">2</span>.5 <span class="m">0</span>.5 TEXT <span class="p">|</span> gmt pstext -R0/5/0/1 -JX15c/2c -F+f&lt;font&gt; &gt; text.ps
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="special-fonts.html" class="btn btn-neutral float-right" title="5.7 特殊字体" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fill.html" class="btn btn-neutral" title="5.5 填充" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

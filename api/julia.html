@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11.3 GMT Julia API &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="11 API" href="../api.html"/>
+        <link rel="next" title="11.4 GMT Python API" href="python.html"/>
+        <link rel="prev" title="11.2 GMT Matlab API" href="matlab.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">11 API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="c.html">11.1 GMT C API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlab.html">11.2 GMT Matlab API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11.3 GMT Julia API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">11.3.1 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">11.3.2 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">11.3.3 使用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">最简单的例子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gmt">向 GMT 传递数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">向 GMT 传递多个数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">其他示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">11.3.4 更多示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">11.3.5 附录</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">11.4 GMT Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">11 API</a> &raquo;</li>
+        
+      <li>11.3 GMT Julia API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/api/julia.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="python.html" class="btn btn-neutral float-right" title="11.4 GMT Python API" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="matlab.html" class="btn btn-neutral" title="11.2 GMT Matlab API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gmt-julia-api">
+<h1>11.3 GMT Julia API<a class="headerlink" href="#gmt-julia-api" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>11.3.1 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://julialang.org">Julia</a> 是一门为科学计算设计的编程语言，简单易学。
+其与 Matlab、Python 等编程语言都有相似之处。GMT 提供了 Julia 接口，使得 Julia
+用户可以直接在 Julia 脚本中调用 GMT 的相关模块。</p>
+<p>GMT 的 Julia 接口的官方地址为： <a class="reference external" href="https://github.com/joa-quim/GMT.jl">https://github.com/joa-quim/GMT.jl</a></p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">GMT 的 julia 接口还在开发中，因而用法可能出现改动，一切以
+<a class="reference external" href="https://github.com/joa-quim/GMT.jl">https://github.com/joa-quim/GMT.jl</a> 中的说明为准。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>11.3.2 安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>关于 Julia 的安装请参考 <a class="reference external" href="http://julialang.org/downloads/">Julia 官方网站</a> 的相关说明。</p>
+<p>启动 Julia 并按照如下方式即可安装 GMT 的 Julia 接口（即 Julia 下的 GMT 模块）:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ julia
+               _
+   _       _ _<span class="o">(</span>_<span class="o">)</span>_     <span class="p">|</span>  A fresh approach to technical computing
+  <span class="o">(</span>_<span class="o">)</span>     <span class="p">|</span> <span class="o">(</span>_<span class="o">)</span> <span class="o">(</span>_<span class="o">)</span>    <span class="p">|</span>  Documentation: http://docs.julialang.org
+   _ _   _<span class="p">|</span> <span class="p">|</span>_  __ _   <span class="p">|</span>  Type <span class="s2">&quot;?help&quot;</span> <span class="k">for</span> help.
+  <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>/ _<span class="sb">`</span> <span class="p">|</span>  <span class="p">|</span>
+  <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span>  <span class="p">|</span>  Version <span class="m">0</span>.5.0 <span class="o">(</span><span class="m">2016</span>-09-19 <span class="m">18</span>:14 UTC<span class="o">)</span>
+ _/ <span class="p">|</span><span class="se">\_</span>_<span class="s1">&#39;_|_|_|\__&#39;</span>_<span class="p">|</span>  <span class="p">|</span>  Official http://julialang.org/ release
+<span class="p">|</span>__/                   <span class="p">|</span>  x86_64-pc-linux-gnu
+
+julia&gt; Pkg.add<span class="o">(</span><span class="s2">&quot;GMT&quot;</span><span class="o">)</span>
+INFO: Initializing package repository /home/seisman/.julia/v0.5
+INFO: Cloning METADATA from https://github.com/JuliaLang/METADATA.jl
+INFO: Cloning cache of Compat from https://github.com/JuliaLang/Compat.jl.git
+INFO: Cloning cache of GMT from https://github.com/joa-quim/GMT.jl.git
+INFO: Installing Compat v0.23.0
+INFO: Installing GMT v0.0.3
+INFO: Package database updated
+
+julia&gt; using GMT
+INFO: Precompiling module Compat.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>11.3.3 使用<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在 Julia 中调用 GMT 的方式，与直接在命令行中调用 GMT 非常类似。通常来说，
+一个调用 GMT 的 Julia 脚本具有如下形式：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+
+<span class="n">返回值</span><span class="o">=</span><span class="n">gmt</span><span class="p">(</span><span class="s">&quot;&lt;module&gt; &lt;options&gt;&quot;</span><span class="p">,</span> <span class="n">输入参数</span><span class="p">)</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;destroy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>说明：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">using</span> <span class="pre">GMT</span></code> 的作用是在 Julia 中导入 GMT 模块，使得可以在 Julia 中通过
+<code class="docutils literal"><span class="pre">gmt()</span></code> 函数调用 GMT 的所有模块</li>
+<li>安装完 GMT 即可后第一次使用 <code class="docutils literal"><span class="pre">using</span> <span class="pre">GMT</span></code> 时，Julia 会对 GMT 即可进行预编译，
+因而会消耗一段时间，但之后再调用时，速度就非常快了</li>
+<li>函数 <code class="docutils literal"><span class="pre">gmt()</span></code> 用于调用 GMT 模块，其第一个参数与 GMT 命令行版本的参数几乎一致，
+之后的参数是当前命令所需的输入数据</li>
+<li>最后，调用函数 <code class="docutils literal"><span class="pre">gmt(&quot;destroy&quot;)</span></code> 以清理不需要的内存</li>
+</ol>
+<div class="section" id="id5">
+<h3>最简单的例子<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>最简单的情况是，只是简单的绘图，不需要输入数据，也不生成任何数据。</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;pscoast -Rg -JA280/30/3.5i -Bg -Dc -A1000 -Gnavy -P &gt; GMT_lambert_az_hemi.ps&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>该 Julia 命令等效于命令行版本的:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -Rg -JA280/30/3.5i -Bg -Dc -A1000 -Gnavy -P &gt; GMT_lambert_az_hemi.ps
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>Julia 接口能够正确使用的前提是 Julia 可以找到 GMT 的动态链接库文件。所以，
+若以上命令报错，则可以执行:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;push!(Libdl.DL_LOAD_PATH, &quot;/opt/GMT-5.4.1/lib64&quot;)&#39;</span> &gt;&gt; ~/.juliarc.jl
+</pre></div>
+</div>
+<p class="last">将 GMT 的动态库文件所在目录添加到 Julia 的搜索路径中。</p>
+</div>
+</div>
+<div class="section" id="gmt">
+<h3>向 GMT 传递数据<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h3>
+<p>GMT 的 <code class="docutils literal"><span class="pre">surface</span></code> 命令会读入一个文本数据，对其进行插值以生成一个网格文件并绘图，例如:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt surface input.txt -Goutput.grd -R0/150/0/150 -I1
+grdimage -Goutput.grd -JX8c -Ba -P -Cblue,red &gt; crap_img.ps
+</pre></div>
+</div>
+<p>下面看看在 Julia 中如何调用 <code class="docutils literal"><span class="pre">surface</span></code> 模块：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span><span class="p">;</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">gmt</span><span class="p">(</span><span class="s">&quot;surface -R0/150/0/150 -I1&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;grdimage -JX8c -Ba -P -Cblue,red &gt; crap_img.ps&quot;</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>本例生成了一个 <em>100x3</em> 的随机数矩阵 <code class="docutils literal"><span class="pre">t</span></code> ，并将其作为 <code class="docutils literal"><span class="pre">gmt()</span></code> 函数的第二个参数，
+即将矩阵 <code class="docutils literal"><span class="pre">t</span></code> 作为 <code class="docutils literal"><span class="pre">surface</span></code> 命令的输入数据（即命令行中的 <code class="docutils literal"><span class="pre">input.txt</span></code> ）。
+同时，将 <code class="docutils literal"><span class="pre">surface</span></code> 命令的输出数据（即命令行中生成的网格数据 <code class="docutils literal"><span class="pre">-Goutput.grd</span></code> ）
+保存到网格变量 <code class="docutils literal"><span class="pre">G</span></code> 中。</p>
+<p>紧接着调用了 <code class="docutils literal"><span class="pre">grdimage</span></code> 模块绘制网格变量 <code class="docutils literal"><span class="pre">G</span></code> 。注意，在命令中使用或不使用
+<code class="docutils literal"><span class="pre">-G</span></code> 选项是完全等效的。即上面例子中的最后一个命令也可以写成：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">gmt</span><span class="p">(</span><span class="s">&quot;grdimage -JX8c -Ba -P -Cblue,red -G &gt; crap_img.ps&quot;</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>向 GMT 传递多个数据<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>若需要向 GMT 命令传递多个数据，则输入参数的顺序就变得很重要。</p>
+<p>下面的例子在之前例子的基础上先生成了一个 CPT 文件，再利用 <code class="docutils literal"><span class="pre">-C&lt;cpt&gt;</span></code> 选项绘图。</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span><span class="p">;</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">gmt</span><span class="p">(</span><span class="s">&quot;surface -R0/150/0/150 -I1&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+<span class="n">cpt</span> <span class="o">=</span> <span class="n">gmt</span><span class="p">(</span><span class="s">&quot;grd2cpt -Cblue,red&quot;</span><span class="p">,</span> <span class="n">G</span><span class="p">);</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;grdimage -JX8c -Ba -P -C -G &gt; crap_img.ps&quot;</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">cpt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>命令行版本中的命令应该是:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdimage -JX8c -Ba -P -Cbluered.cpt -Goutput.grd &gt; crap_img.ps
+</pre></div>
+</div>
+<p>在 Julia 中，CPT 文件和网格文件作为输入数据。参数列表中，必须的输入（即 <code class="docutils literal"><span class="pre">G</span></code> ）
+要放在可选输入（即 <code class="docutils literal"><span class="pre">cpt</span></code> ）之前，多个可选输入的参数位置由命令中选项的先后
+顺序决定。</p>
+</div>
+<div class="section" id="id7">
+<h3>其他示例<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>下面的例子展示了如何绘制一条彩色渐变的正弦函数曲线：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="p">,</span> <span class="nb">pi</span><span class="p">);</span>             <span class="c"># The *xx* var</span>
+<span class="n">seno</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>                     <span class="c"># *yy*</span>
+<span class="n">xyz</span>  <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="n">seno</span> <span class="n">seno</span><span class="p">];</span>              <span class="c"># Duplicate *yy* so that it can be colored</span>
+<span class="n">cpt</span>  <span class="o">=</span> <span class="n">gmt</span><span class="p">(</span><span class="s">&quot;makecpt -T-1/1/0.1&quot;</span><span class="p">);</span>  <span class="c"># Create a CPT</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;psxy -R-3.2/3.2/-1.1/1.1 -JX12c -Sc0.1c -C -P -Ba &gt; seno.ps&quot;</span><span class="p">,</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">cpt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意，此处输入参数的顺序必须是 <code class="docutils literal"><span class="pre">xyz,</span> <span class="pre">cpt</span></code> 而不能是 <code class="docutils literal"><span class="pre">cpt,</span> <span class="pre">xyz</span></code> 。</p>
+<p>下面的例子展示了如何写字符串：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="kt">Any</span><span class="p">[</span><span class="s">&quot;5 6 Some label&quot;</span><span class="p">,</span> <span class="s">&quot;6 7 Another label&quot;</span><span class="p">];</span>
+<span class="n">gmt</span><span class="p">(</span><span class="s">&quot;pstext -R0/10/0/10 -JM6i -Bafg -F+f18p -P &gt; text.ps&quot;</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在 Julia 脚本结束时，可以使用:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt<span class="o">(</span><span class="s2">&quot;destroy&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>以清理不必要的内存。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>11.3.4 更多示例<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>GMT 官方将 GMT 自带的示例用 Julia 重写了一遍，Julia 用户可以阅读并运行这些 Julia 代码。</p>
+<p>Julia 示例位于： <code class="docutils literal"><span class="pre">~/.julia/v0.5/GMT/test/gallery.jl</span></code> 中，你可以直接阅读 Julia 源码。</p>
+<p>如果想要执行该 Julia 脚本，你需要将 <code class="docutils literal"><span class="pre">~/.julia/v0.5/GMT/test/gallery.jl</span></code> 的第7行修改为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>global <span class="nv">g_root_dir</span> <span class="o">=</span> <span class="s2">&quot;/opt/GMT-5.4.1/share/&quot;</span>
+global <span class="nv">out_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>并安装如下方式运行示例：</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">GMT</span>
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;/home/seisman/.julia/v0.5/GMT/test/gallery.jl&quot;</span><span class="p">)</span>
+<span class="n">gallery</span><span class="p">(</span><span class="s">&quot;ex01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>11.3.5 附录<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">gmt()</span></code> 函数会返回多种类型的变量，比如上面例子中涉及到的CPT类型和网格类型的变量。
+因而需要在 Julia 中专门定义相关类型的变量。</p>
+<p>Julia 中网格变量 <code class="docutils literal"><span class="pre">GMTJL_GRID</span></code> 的定义为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">type</span> GMTJL_GRID                 <span class="c1"># The type holding a local header and data of a GMT grid</span>
+   proj4::String              <span class="c1"># Projection string in PROJ4 syntax (Optional)</span>
+   wkt::String                <span class="c1"># Projection string in WKT syntax (Optional)</span>
+   range::Array<span class="o">{</span>Float64,1<span class="o">}</span>    <span class="c1"># 1x6 vector with [x_min x_max y_min y_max z_min z_max]</span>
+   inc::Array<span class="o">{</span>Float64,1<span class="o">}</span>      <span class="c1"># 1x2 vector with [x_inc y_inc]</span>
+   registration::Int          <span class="c1"># Registration type: 0 -&gt; Grid registration; 1 -&gt; Pixel registration</span>
+   nodata::Float64            <span class="c1"># The value of nodata</span>
+   title::String              <span class="c1"># Title (Optional)</span>
+   comment::String            <span class="c1"># Remark (Optional)</span>
+   command::String            <span class="c1"># Command used to create the grid (Optional)</span>
+   datatype::String           <span class="c1"># &#39;float&#39; or &#39;double&#39;</span>
+   x::Array<span class="o">{</span>Float64,1<span class="o">}</span>        <span class="c1"># [1 x n_columns] vector with XX coordinates</span>
+   y::Array<span class="o">{</span>Float64,1<span class="o">}</span>        <span class="c1"># [1 x n_rows]    vector with YY coordinates</span>
+   z::Array<span class="o">{</span>Float32,2<span class="o">}</span>        <span class="c1"># [n_rows x n_columns] grid array</span>
+   x_units::String            <span class="c1"># Units of XX axis (Optional)</span>
+   y_units::String            <span class="c1"># Units of YY axis (Optional)</span>
+   z_units::String            <span class="c1"># Units of ZZ axis (Optional)</span>
+   layout::String             <span class="c1"># A three character string describing the grid memory layout</span>
+end
+</pre></div>
+</div>
+<p>图片变量 <code class="docutils literal"><span class="pre">GMTimage</span></code> 的定义为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">type</span> GMTimage                 <span class="c1"># The type holding a local header and data of a GMT image</span>
+   proj4::String              <span class="c1"># Projection string in PROJ4 syntax (Optional)</span>
+   wkt::String                <span class="c1"># Projection string in WKT syntax (Optional)</span>
+   range::Array<span class="o">{</span>Float64,1<span class="o">}</span>    <span class="c1"># 1x6 vector with [x_min x_max y_min y_max z_min z_max]</span>
+   inc::Array<span class="o">{</span>Float64,1<span class="o">}</span>      <span class="c1"># 1x2 vector with [x_inc y_inc]</span>
+   registration::Int          <span class="c1"># Registration type: 0 -&gt; Grid registration; 1 -&gt; Pixel registration</span>
+   nodata::Float64            <span class="c1"># The value of nodata</span>
+   title::String              <span class="c1"># Title (Optional)</span>
+   comment::String            <span class="c1"># Remark (Optional)</span>
+   command::String            <span class="c1"># Command used to create the image (Optional)</span>
+   datatype::String           <span class="c1"># &#39;uint8&#39; or &#39;int8&#39; (needs checking)</span>
+   x::Array<span class="o">{</span>Float64,1<span class="o">}</span>        <span class="c1"># [1 x n_columns] vector with XX coordinates</span>
+   y::Array<span class="o">{</span>Float64,1<span class="o">}</span>        <span class="c1"># [1 x n_rows]    vector with YY coordinates</span>
+   image::Array<span class="o">{</span>UInt8,3<span class="o">}</span>      <span class="c1"># [n_rows x n_columns x n_bands] image array</span>
+   x_units::String            <span class="c1"># Units of XX axis (Optional)</span>
+   y_units::String            <span class="c1"># Units of YY axis (Optional)</span>
+   z_units::String            <span class="c1"># Units of ZZ axis (Optional) ==&gt; MAKES NO SENSE</span>
+   colormap::Array<span class="o">{</span>Clong,1<span class="o">}</span>   <span class="c1">#</span>
+   alpha::Array<span class="o">{</span>UInt8,2<span class="o">}</span>      <span class="c1"># A [n_rows x n_columns] alpha array</span>
+   layout::String             <span class="c1"># A four character string describing the image memory layout</span>
+end
+</pre></div>
+</div>
+<p>DATASET变量 <code class="docutils literal"><span class="pre">GMTdataset</span></code> 的定义为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">type</span> GMTdataset
+    header::String
+    data::Array<span class="o">{</span>Float64,2<span class="o">}</span>
+    text::Array<span class="o">{</span>Any,1<span class="o">}</span>
+    comment::Array<span class="o">{</span>Any,1<span class="o">}</span>
+    proj4::String
+    wkt::String
+end
+</pre></div>
+</div>
+<p>CPT变量 <code class="docutils literal"><span class="pre">GMTcpt</span></code> 的定义为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">type</span> GMTcpt
+    colormap::Array<span class="o">{</span>Float64,2<span class="o">}</span>
+    alpha::Array<span class="o">{</span>Float64,1<span class="o">}</span>
+    range::Array<span class="o">{</span>Float64,2<span class="o">}</span>
+    minmax::Array<span class="o">{</span>Float64,1<span class="o">}</span>
+    bfn::Array<span class="o">{</span>Float64,2<span class="o">}</span>
+    depth::Cint
+    hinge::Cdouble
+    cpt::Array<span class="o">{</span>Float64,2<span class="o">}</span>
+    model::String
+    comment::Array<span class="o">{</span>Any,1<span class="o">}</span>   <span class="c1"># Cell array with any comments</span>
+end
+</pre></div>
+</div>
+<p>PS变量 <code class="docutils literal"><span class="pre">GMTps</span></code> 的定义为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">type</span> GMTps
+    postscript::String      <span class="c1"># Actual PS plot (text string)</span>
+    length::Int             <span class="c1"># Byte length of postscript</span>
+    mode::Int               <span class="c1"># 1 = Has header, 2 = Has trailer, 3 = Has both</span>
+    comment::Array<span class="o">{</span>Any,1<span class="o">}</span>   <span class="c1"># Cell array with any comments</span>
+end
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python.html" class="btn btn-neutral float-right" title="11.4 GMT Python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="matlab.html" class="btn btn-neutral" title="11.2 GMT Matlab API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

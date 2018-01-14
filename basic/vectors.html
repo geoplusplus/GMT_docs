@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.11 绘制矢量/箭头 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.12 锚点" href="anchors.html"/>
+        <link rel="prev" title="5.10 线条属性" href="lines.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit.html">5.1 单位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paper.html">5.2 画布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">5.6 文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character-escape.html">5.9 转义序列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lines.html">5.10 线条属性</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.11 绘制矢量/箭头</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.11.1 矢量分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.11.2 矢量箭头属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.11.3 矢量示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.11 绘制矢量/箭头</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/vectors.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="anchors.html" class="btn btn-neutral float-right" title="5.12 锚点" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lines.html" class="btn btn-neutral" title="5.10 线条属性" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>5.11 绘制矢量/箭头<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>矢量是一个有大小和方向的量。</p>
+<p>GMT 中能够绘制矢量的模块包括 <code class="docutils literal"><span class="pre">psxy</span></code> 、 <code class="docutils literal"><span class="pre">psxyz</span></code> 、 <code class="docutils literal"><span class="pre">grdvector</span></code> 和 <code class="docutils literal"><span class="pre">psvelo</span></code> 等。除此之外，大多数简单的线段也可以加上矢量箭头。</p>
+<p>GMT 中绘制的矢量都可以分为两个独立的部分：</p>
+<ol class="arabic simple">
+<li>矢量线</li>
+<li>矢量箭头</li>
+</ol>
+<p>矢量线就是简单的线段，其属性在 <a class="reference internal" href="pen.html"><span class="doc">画笔</span></a> 和 <a class="reference internal" href="lines.html"><span class="doc">线条属性</span></a> 已经详细介绍。这一节将详细介绍 GMT 中的矢量箭头的属性。</p>
+<div class="section" id="id2">
+<h2>5.11.1 矢量分类<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT 中的矢量可以分为三类：</p>
+<ul class="simple">
+<li>笛卡尔矢量：矢量线是直线。可以通过如下几种方式指定<ol class="arabic">
+<li>给定起点和终点</li>
+<li>给定起点、方向和长度（使用长度单位）</li>
+<li>给定起点、方位角和长度（单位为km）</li>
+</ol>
+</li>
+<li>弧形矢量：矢量线是圆弧。通过给定圆心、半径以及圆弧起始和结束的角度来指定</li>
+<li>地理矢量：矢量线是大圆弧路径。可以通过两种方式指定<ol class="arabic">
+<li>给定起点和终点</li>
+<li>给定起点、方位角和长度（单位为km）</li>
+</ol>
+</li>
+</ul>
+<p>以 <code class="docutils literal"><span class="pre">psxy</span></code> 模块为例，<code class="docutils literal"><span class="pre">-Sv</span></code> 或 <code class="docutils literal"><span class="pre">-SV</span></code> 用于绘制笛卡尔矢量， <code class="docutils literal"><span class="pre">-Sm</span></code> 用于绘制弧形矢量， <code class="docutils literal"><span class="pre">-S=</span></code> 用于绘制地理矢量。</p>
+<p>下面的例子分别绘制了三种矢量箭头：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># 笛卡尔矢量</span>
+<span class="nb">echo</span> <span class="m">0</span>.5 <span class="m">1</span>.5 <span class="m">4</span>.5 <span class="m">1</span>.5 <span class="p">|</span> gmt psxy -R0/5/0/5 -JX1.75i -Sv0.2i+s+b+e -W1.5p -Gred -K &gt; GMT_arrows.ps
+
+<span class="c1"># 弧形矢量</span>
+<span class="nb">echo</span> <span class="m">0</span>.5 <span class="m">0</span>.5 <span class="m">0</span>.9i <span class="m">0</span> <span class="m">90</span> <span class="p">|</span> gmt psxy -R -J -Sm0.2i+b+e -W1.5p -Gred -X2i -K -O &gt;&gt; GMT_arrows.ps
+
+<span class="c1"># 地理矢量</span>
+<span class="nb">echo</span> <span class="m">10</span> -35 <span class="m">90</span> <span class="m">8000</span> <span class="p">|</span> gmt psxy -R0/90/-41.17/41.17 -JM1.75i -S<span class="o">=</span><span class="m">0</span>.2i+b+e -W1.5p -Gred -O -X2i &gt;&gt; GMT_arrows.ps 
+
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/GMT_arrows.png"><img alt="../_images/GMT_arrows.png" src="../_images/GMT_arrows.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 5.14 </span><span class="caption-text">GMT中的三种矢量箭头</span></p>
+<div class="legend">
+（左）笛卡尔矢量；（中）弧形矢量；（右）地理矢量</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>5.11.2 矢量箭头属性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">读者可以修改上面示例中的 <code class="docutils literal"><span class="pre">-S</span></code> 选项后的参数并查看效果来理解接下来的内容。</p>
+</div>
+<p>绘制矢量时，默认只有矢量线没有矢量头，可以使用下面几个子选项为矢量加上矢量头：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">+b[t|c|a|i|A|I][l|r]</span></code> ：在矢量线的首端加上矢量头<ul>
+<li><code class="docutils literal"><span class="pre">t|c|a|i|A|I</span></code> 用于控制矢量头的形状，默认是 <code class="docutils literal"><span class="pre">a</span></code><ul>
+<li><code class="docutils literal"><span class="pre">t</span></code> 矢量头为终点线（垂直于矢量线的短线）</li>
+<li><code class="docutils literal"><span class="pre">c</span></code> 矢量头为圆圈</li>
+<li><code class="docutils literal"><span class="pre">a</span></code> 矢量头为箭头</li>
+<li><code class="docutils literal"><span class="pre">i</span></code> 矢量头为箭尾</li>
+<li><code class="docutils literal"><span class="pre">A</span></code> 矢量头为简单箭头</li>
+<li><code class="docutils literal"><span class="pre">I</span></code> 矢量头为简单箭尾</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">l|r</span></code> 表示只绘制矢量的头的左半边或右半边（默认两边都绘制）</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">+e[t|c|a|i|A|I][l|r]</span></code> ：在矢量线的尾端加上矢量头。其他同上</li>
+<li><code class="docutils literal"><span class="pre">+m[f|r][t|c|a][l|r]</span></code> ：在矢量线的中间加上矢量头。<ul>
+<li><code class="docutils literal"><span class="pre">f|r</span></code> 表示矢量头沿着正方向或逆方向（默认值从首端指向尾端）</li>
+<li>其他同上</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><code class="docutils literal"><span class="pre">+m</span></code> 不能与 <code class="docutils literal"><span class="pre">+b</span></code> 或 <code class="docutils literal"><span class="pre">+e</span></code> 一起使用</p>
+</div>
+<p>下面的子选项可以进一步控制矢量头的外观：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">+a&lt;angle&gt;</span></code> 控制矢量箭头顶端的夹角，默认值为30度</li>
+<li><code class="docutils literal"><span class="pre">+l</span></code> 表示只绘制左半个箭头</li>
+<li><code class="docutils literal"><span class="pre">+r</span></code> 表示只绘制右半个箭头</li>
+<li><code class="docutils literal"><span class="pre">+g&lt;fill&gt;</span></code> 设置箭头填充色， <code class="docutils literal"><span class="pre">&lt;fill&gt;</span></code> 为 <code class="docutils literal"><span class="pre">-</span></code> 表示不填充，默认使用 <code class="docutils literal"><span class="pre">-G</span></code> 指定的填充色</li>
+<li><code class="docutils literal"><span class="pre">+p[-][&lt;pen&gt;]</span></code> 设置矢量的画笔属性， <code class="docutils literal"><span class="pre">-&lt;pen&gt;</span></code> 表示不绘制矢量箭头的轮廓，默认使用 <code class="docutils literal"><span class="pre">-W</span></code> 所指定的画笔属性</li>
+</ul>
+<p>还有其他一些子选项：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">+n&lt;norm&gt;</span></code> 默认情况下，矢量头的大小不随着矢量线的长度变化而变化，这可能会出现矢量长度太小时矢量头过大的情况。该选项使得矢量长度小于 <code class="docutils literal"><span class="pre">&lt;norm&gt;</span></code> 时，矢量头的属性（画笔宽度，箭头大小）会根据矢量长度按照 <code class="docutils literal"><span class="pre">length/&lt;norm&gt;</span></code> 缩放</li>
+<li><code class="docutils literal"><span class="pre">+t[b|e]&lt;trim&gt;</span></code> 将矢量的首端或尾端偏移一定长度， <code class="docutils literal"><span class="pre">&lt;trim&gt;</span></code> 为正值表示矢量长度变短，为负值表示矢量长度变长。还可以使用 <code class="docutils literal"><span class="pre">+t&lt;trim1&gt;/&lt;trim2&gt;</span></code> 语法分别为首端和尾端指定偏移量。正值表示将矢量线缩短。</li>
+<li><code class="docutils literal"><span class="pre">+o&lt;plon&gt;/&lt;plat&gt;</span></code> specifies the oblique pole for the great or small circles. 仅当与 <code class="docutils literal"><span class="pre">+q</span></code> 一起使用时有效</li>
+<li><code class="docutils literal"><span class="pre">+q</span></code> 表明输入数据中的 <code class="docutils literal"><span class="pre">angle</span></code> 和 <code class="docutils literal"><span class="pre">length</span></code> 被解释为矢量的开始和结束的角度</li>
+</ul>
+<p>除了弧形矢量外，其他矢量还可以使用如下子选项：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">+j[b|c|e]</span></code> 默认情况下，输入数据中的XY坐标会作为矢量的首端坐标，该选项可以修改这一行为， <code class="docutils literal"><span class="pre">b|e|c</span></code> 分别代表输入数据中的XY坐标作为矢量的首端、尾端和中间</li>
+<li><code class="docutils literal"><span class="pre">+s</span></code> 表明输入数据中的 <code class="docutils literal"><span class="pre">angle</span></code> 和 <code class="docutils literal"><span class="pre">length</span></code> 被解释为矢量的尾端XY坐标</li>
+</ul>
+<p>对于笛卡尔矢量而言，还可以使用：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">+z&lt;scale&gt;[&lt;unit&gt;]</span></code> expects input <em>dx</em>,<em>dy</em> vector components and uses the <em>scale</em> to convert to polar coordinates with length in given unit.</li>
+</ul>
+<p>除此之外，GMT配置参数中 <a class="reference internal" href="../conf/map.html#map-vector-shape"><span class="std std-ref">MAP_VECTOR_SHAPE</span></a> 也可以用于修改箭头的外观。</p>
+</div>
+<div class="section" id="id4">
+<h2>5.11.3 矢量示例<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>下图展示了部分 GMT 可以绘制的矢量，每个矢量右边给出了其对应的选项。需要注意的是，某些矢量设置了 <code class="docutils literal"><span class="pre">MAP_VECTOR_SHAPE</span></code> 的值为 0.5。</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/GMT_arrows_types.png"><img alt="../_images/GMT_arrows_types.png" src="../_images/GMT_arrows_types.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">图 5.15 </span><span class="caption-text">矢量箭头类型</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="anchors.html" class="btn btn-neutral float-right" title="5.12 锚点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lines.html" class="btn btn-neutral" title="5.10 线条属性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

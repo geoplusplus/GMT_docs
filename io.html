@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 输入与输出 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="搜索" href="search.html"/>
+    <link rel="top" title="GMT参考手册" href="index.html"/>
+        <link rel="next" title="6.1 数据格式" href="io/format.html"/>
+        <link rel="prev" title="5.14 词汇表" href="basic/glossary.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">5 绘图基础</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6 输入与输出</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/format.html">6.1 数据格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/postscript.html">6.2 PostScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/table-data.html">6.3 表数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html">6.4 网格文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html">6.5 CPT文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/nan-data.html">6.6 NaN 数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/netcdf.html">6.7 netCDF文件格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/sun-raster.html">6.8 Sun光栅文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/native-grid.html">6.9 Native二进制网格格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-suffix.html">6.10 网格文件后缀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html">6.11 兼容OGR的GMT矢量数据格式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6 输入与输出</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/io.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="io/format.html" class="btn btn-neutral float-right" title="6.1 数据格式" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic/glossary.html" class="btn btn-neutral" title="5.14 词汇表" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6 输入与输出<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>GMT 每个模块都有很多输入和输出。总的来说，输入输出可以分为如下几类：</p>
+<ol class="arabic simple">
+<li>1D 表数据</li>
+<li>2D 网格数据</li>
+<li>CPT 文件</li>
+<li>PostScript 代码</li>
+<li>警告和错误消息</li>
+<li>退出状态码</li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="io/format.html">6.1 数据格式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/format.html#id2">6.1.1 地理坐标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/format.html#id3">6.1.2 绝对时间坐标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/format.html#id4">6.1.3 相对时间坐标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/format.html#id5">6.1.4 一般坐标值</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/postscript.html">6.2 PostScript</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/postscript.html#ps">6.2.1 PS是什么</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/postscript.html#id1">6.2.2 PS的优点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/postscript.html#id2">6.2.3 PS阅读器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/postscript.html#id3">6.2.4 将PS转换为其他格式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/table-data.html">6.3 表数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/table-data.html#ascii">6.3.1 ASCII表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/table-data.html#id2">ASCII表简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/table-data.html#id3">文件头记录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/table-data.html#id4">数据段头记录</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/table-data.html#id5">6.3.2 二进制表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/table-data.html#netcdf">6.3.3 NetCDF表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/grid-data.html">6.4 网格文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#grid-format">6.4.1 网格文件格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#netcdf">NetCDF网格文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#native">Native二进制网格文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#sun">Sun光栅文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#id3">6.4.2 写网格文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#id4">6.4.3 读netCDF文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id5">多个二维变量的处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id6">三维变量的处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id7">四维变量的处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id8">一维变量的处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id9">修改坐标单位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#grid-registration">6.4.4 网格配准</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id11">网格线配准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id12">像素配准</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#id13">6.4.5 边界条件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id14">默认边界条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id15">周期边界条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/grid-data.html#id16">地理边界条件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/grid-data.html#id17">6.4.6 查看netCDF文件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/cpt.html">6.5 CPT文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#id1">6.5.1 CPT文件格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/cpt.html#id2">分类CPT文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/cpt.html#id3">常规CPT文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#gmtcpt">6.5.2 GMT内置CPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#id4">6.5.3 动态CPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#id5">6.5.4 调整CPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#id6">6.5.5 使用CPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/cpt.html#id7">6.5.6 其他CPT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/nan-data.html">6.6 NaN 数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/netcdf.html">6.7 netCDF文件格式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/netcdf.html#id1">6.7.1 格式说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/netcdf.html#id2">6.7.2 分块与压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io/sun-raster.html">6.8 Sun光栅文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/native-grid.html">6.9 Native二进制网格格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/grid-suffix.html">6.10 网格文件后缀</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/ogr-format.html">6.11 兼容OGR的GMT矢量数据格式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html#id1">6.11.1 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html#ogr-gmt">6.11.2 OGR/GMT格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html#id2">6.11.3 OGR/GMT元数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#v">格式版本号 <code class="docutils literal"><span class="pre">&#64;V</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#g">几何类型 <code class="docutils literal"><span class="pre">&#64;G</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#r">区域范围 <code class="docutils literal"><span class="pre">&#64;R</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#j">投影信息 <code class="docutils literal"><span class="pre">&#64;J</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#n">声明非空间字段 <code class="docutils literal"><span class="pre">&#64;N</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html#id3">6.11.4 OGR/GMT数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#id4">非空间数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/ogr-format.html#id5">多边形拓扑</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/ogr-format.html#id6">6.11.5 示例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="io/format.html" class="btn btn-neutral float-right" title="6.1 数据格式" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic/glossary.html" class="btn btn-neutral" title="5.14 词汇表" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

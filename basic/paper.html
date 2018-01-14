@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.2 画布 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.3 颜色" href="color.html"/>
+        <link rel="prev" title="5.1 单位" href="unit.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit.html">5.1 单位</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2 画布</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.2.1 画布尺寸</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.2.2 画布颜色</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.2.3 画布方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.2.4 底图原点</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">5.6 文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character-escape.html">5.9 转义序列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lines.html">5.10 线条属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectors.html">5.11 绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.2 画布</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/paper.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="color.html" class="btn btn-neutral float-right" title="5.3 颜色" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="unit.html" class="btn btn-neutral" title="5.1 单位" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>5.2 画布<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>要画一张图，首先需要准备一个画布。GMT 的画布就是 PS 文件。GMT 默认的画布是 A4 大小的横置的白色PS文件。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">本节介绍的内容，涉及到后面的一些知识。因而这里只是做简单介绍，具体的操作看不懂也没关系。</p>
+</div>
+<div class="section" id="id2">
+<h2>5.2.1 画布尺寸<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT默认的画布尺寸为A4，即 <code class="docutils literal"><span class="pre">210mmx297mm</span></code> 。</p>
+<p>通过修改 GMT 参数 <a class="reference internal" href="../conf/ps.html#ps-media"><span class="std std-ref">PS_MEDIA</span></a> 可以控制画布的默认尺寸。GMT提供了几十种预定义的画布尺寸，还支持自定义尺寸，详情见 <a class="reference internal" href="../conf/ps.html#ps-media"><span class="std std-ref">PS_MEDIA</span></a> 的说明。</p>
+<p>一般不建议随便修改纸张尺寸，一方面期刊对于图件的尺寸可能有要求，另一方面非 A4 尺寸的图直接打印的效果可能很差。</p>
+</div>
+<div class="section" id="id3">
+<h2>5.2.2 画布颜色<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>默认的画布颜色为白色，可以通过设置 <a class="reference internal" href="../conf/ps.html#ps-page-color"><span class="std std-ref">PS_PAGE_COLOR</span></a> 来修改画布颜色。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">若设置画布颜色为其他颜色，则使用 <code class="docutils literal"><span class="pre">psconvert</span></code> 将 PS 文件转化为其他图片格式时无法使用 <code class="docutils literal"><span class="pre">-A</span></code> 选项进行裁边。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>5.2.3 画布方向<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>取一张 A4 纸放在桌面上，有两种放置的方式：竖着放和横着放。如图所示：</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/GMT_-P.png"><img alt="../_images/GMT_-P.png" src="../_images/GMT_-P.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">图 5.1 </span><span class="caption-text">画布方向</span></p>
+</div>
+<p>图中左边把纸张竖着放的称为Portrait（肖像）模式，右边把纸张横着放的方式称为Landscape（风景）模式。记起来也很简单，人是瘦长的，所以人的肖像照需要竖着拍，风景是矮胖的，就需要横着拍。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>对于Portrait模式和Landscape模式，还有另外一种理解方式，即认为画布总是竖着放的。</p>
+<ul class="simple">
+<li>Portrait模式：此模式下坐标原点位于纸张左下角，X轴从左到右递增，与画布的短边平行，Y轴从下往上递增，与画布的长边平行</li>
+<li>Landscape模式：此模式下坐标原点位于纸张右下角，X轴从下往上递增，与画布的长边平行，Y轴从右往左递增，与画布的短边平行</li>
+</ul>
+<p class="last">这种理解方式下，Landscape模式可以认为是在Portrait模式的基础上先将坐标原点沿X轴移动到右下角，在将坐标系旋转90度得到。</p>
+</div>
+<p>由于历史原因，GMT中画布的默认放置方式是Landscape模式。有两种方式可以修改画布方向：</p>
+<ol class="arabic simple">
+<li>在第一个<strong>绘图</strong>命令中使用 <a class="reference internal" href="../option/P.html"><span class="doc">-P 选项</span></a></li>
+<li>修改GMT参数中的 <a class="reference internal" href="../conf/ps.html#ps-page-orientation"><span class="std std-ref">PS_PAGE_ORIENTATION</span></a></li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">Linux下默认的PS阅读器evince可以自动识别两种模式，Landscape模式的PS文件横着放，Portrait模式的文件竖着放，所以看上去总是对的。而 <code class="docutils literal"><span class="pre">gs</span></code> 无法自动识别两种模式，总是将文件竖着放，因而用gs看Landscape模式的PS文件时就会很别扭。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>从底层来看，Landscape模式和Portait模式的PS文件之间的差异在于，Landspace 模式下的PS代码为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>V <span class="m">595</span> <span class="m">0</span> T <span class="m">90</span> R <span class="m">0</span>.06 <span class="m">0</span>.06 scale
+</pre></div>
+</div>
+<p>而 Portrait 模式下的 PS 代码为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>V <span class="m">0</span>.06 <span class="m">0</span>.06 scale
+</pre></div>
+</div>
+<p class="last"><code class="docutils literal"><span class="pre">595</span> <span class="pre">0</span> <span class="pre">T</span> <span class="pre">90</span> <span class="pre">R</span></code> 的含义应该是将坐标系移动（ <strong>T</strong>ransition）到 <code class="docutils literal"><span class="pre">(595,0)</span></code> 再旋转（ <strong>R</strong>otate）90度，即由Portrait模式变成Landscape模式。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>5.2.4 底图原点<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>准备好画布之后，可不能随便找一个点就开始画了，还需要定义底图的原点。GMT默认的底图原点距左下角 <code class="docutils literal"><span class="pre">(1i,1i)</span></code> ，即坐标原点离纸张左下角的距离是水平方向偏移1英寸，垂直方向偏移1英寸。</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/GMT_basemap_origin.png"><img alt="../_images/GMT_basemap_origin.png" src="../_images/GMT_basemap_origin.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 5.2 </span><span class="caption-text">底图原点</span></p>
+</div>
+<p>图中所示是一个完整的A4画布。其中灰色实线的间距是 1 cm，灰色虚线（右键查看大图）的间距是 0.5 cm。图中的底图用如下命令得到:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt psbasemap -R0/10/0/10 -JX10c/10c -B1 -B+glightblue &gt; map.ps
+</pre></div>
+</div>
+<p>该命令中， <code class="docutils literal"><span class="pre">-JX10c/10c</span></code> 规定了底图的宽和高都是 10 cm，可以看到，底图的左边界位于 <code class="docutils literal"><span class="pre">1i</span></code> ，右边界位于 <code class="docutils literal"><span class="pre">1i+10c</span></code> 处，下边界位于 <code class="docutils literal"><span class="pre">1i</span></code> ，上边界位于 <code class="docutils literal"><span class="pre">1i+10c</span></code> 处。</p>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p class="last">此处提到的底图原点是指矩形底图的坐标轴的左下角相对于画图左下角的位置，而不包括坐标轴的标注或标签部分。</p>
+</div>
+<p>可以在命令中使用 <a class="reference internal" href="../option/XY.html"><span class="doc">-X 和 -Y 选项</span></a> 来修改底图的原点位置。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="color.html" class="btn btn-neutral float-right" title="5.3 颜色" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="unit.html" class="btn btn-neutral" title="5.1 单位" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

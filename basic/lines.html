@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.10 线条属性 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.11 绘制矢量/箭头" href="vectors.html"/>
+        <link rel="prev" title="5.9 转义序列" href="character-escape.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit.html">5.1 单位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paper.html">5.2 画布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">5.6 文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character-escape.html">5.9 转义序列</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.10 线条属性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.10.1 端点偏移量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.10.2 线条平滑</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.10.3 端点箭头</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vectors.html">5.11 绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.10 线条属性</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/lines.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="vectors.html" class="btn btn-neutral float-right" title="5.11 绘制矢量/箭头" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="character-escape.html" class="btn btn-neutral" title="5.9 转义序列" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>5.10 线条属性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><a class="reference internal" href="pen.html"><span class="doc">画笔</span></a> 一节介绍了画笔的三个属性：线宽、颜色以及线型。对于线条而言，除了画笔的这三个属性之外，某些模块还可以为线条设置额外的线条属性，这些额外的属性可以通过在画笔属性后加上子选项来是实现。</p>
+<p>线条的额外属性包括：端点偏移量、线条平滑和端点箭头。</p>
+<div class="section" id="id2">
+<h2>5.10.1 端点偏移量<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在给定若干个数据点绘制线条时，一般都是从起点（第一个点）一直画到终点（最后一个点）。可以使用 <code class="docutils literal"><span class="pre">+o</span></code> 子选项为线段两端指定偏移量，使得绘制线段时的起点和终点与输入数据中指定的起点和终点间存在一定的偏移量。该子选项的语法是:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>+o&lt;offset&gt;<span class="o">[</span>&lt;u&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>若只给了一个 <code class="docutils literal"><span class="pre">&lt;offset&gt;</span></code> ，则表示起点和终点共用同一个偏移量</li>
+<li>也可以用 <code class="docutils literal"><span class="pre">&lt;offset&gt;/&lt;offset&gt;</span></code> 分别为起点和终点指定不同的偏移量</li>
+<li>对于每个偏移量，都可以使用长度单位或距离单位</li>
+</ul>
+<p>图中，细线和粗线使用了完全相同的输入数据，其中细线没有使用 <code class="docutils literal"><span class="pre">+o</span></code> 选项的结果，此时线段的起点和终点与数据指定的点重合，粗线在绘制线条时使用了 <code class="docutils literal"><span class="pre">-W2p+o1c/500k</span></code> 选项，即在起点处偏移1厘米，在终点处偏移500千米。</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/GMT_line_offset.png"><img alt="../_images/GMT_line_offset.png" src="../_images/GMT_line_offset.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">图 5.11 </span><span class="caption-text">线段起点偏移示意图</span></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>5.10.2 线条平滑<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>通常情况下，在绘制线条时，两点之间是用直线连接的（地图上两点之间默认用大圆弧连接）。使用 <code class="docutils literal"><span class="pre">+s</span></code> 子选项会使用 Bezier splines 在两点之间做样条插值以得到更光滑的曲线。</p>
+<p>下图中，左图使用了 <code class="docutils literal"><span class="pre">-W2p</span></code> 选项，右边使用了 <code class="docutils literal"><span class="pre">-W2p+s</span></code> 。</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/GMT_bezier.png"><img alt="../_images/GMT_bezier.png" src="../_images/GMT_bezier.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">图 5.12 </span><span class="caption-text">线条自动样条插值示意图</span></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>5.10.3 端点箭头<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>默认情况下，在绘制线段时，线段的两个端点并没有什么特别的。使用 <code class="docutils literal"><span class="pre">+v</span></code> 子选项，可以在线段的一端或两段绘制一个指向端点的箭头。该子选项的语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>+v<span class="o">[</span>b<span class="p">|</span>e<span class="o">]</span>&lt;vspecs&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>默认会在线段两端都加上箭头， <code class="docutils literal"><span class="pre">b|e</span></code> 表示只绘制开头或结尾的箭头</li>
+<li>箭头属性 <code class="docutils literal"><span class="pre">&lt;vspecs&gt;</span></code> 的细节参考 <a class="reference internal" href="vectors.html"><span class="doc">绘制矢量/箭头</span></a> 一节的内容</li>
+</ul>
+<p>下图中细线是通常绘制的线段，粗线使用的选项是 <code class="docutils literal"><span class="pre">-W2p+o1c/500k+vb0.2i+gred+pfaint+bc+ve0.3i+gblue</span></code> 。</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/GMT_line_arrow.png"><img alt="../_images/GMT_line_arrow.png" src="../_images/GMT_line_arrow.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">图 5.13 </span><span class="caption-text">线条端点箭头示意图</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vectors.html" class="btn btn-neutral float-right" title="5.11 绘制矢量/箭头" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="character-escape.html" class="btn btn-neutral" title="5.9 转义序列" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

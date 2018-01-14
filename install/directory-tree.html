@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.7 目录结构 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="3 安装" href="../install.html"/>
+        <link rel="next" title="4 快速入门教程" href="../tutorial.html"/>
+        <link rel="prev" title="3.6 GMT 数据库的建立" href="datadir.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../install.html">3 安装</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="linux.html">3.1 Linux 下安装GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cn-linux.html">3.2 Linux 下的 GMT 中文支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html">3.3 Windows 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cn-windows.html">3.4 Windows 下的 GMT 中文支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macOS.html">3.5 macOS 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datadir.html">3.6 GMT 数据库的建立</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.7 目录结构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bin">3.7.1 <code class="docutils literal"><span class="pre">bin</span></code> 目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include">3.7.2 <code class="docutils literal"><span class="pre">include</span></code> 目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lib">3.7.3 <code class="docutils literal"><span class="pre">lib</span></code> 目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#share">3.7.4 <code class="docutils literal"><span class="pre">share</span></code> 目录</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../install.html">3 安装</a> &raquo;</li>
+        
+      <li>3.7 目录结构</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/install/directory-tree.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../tutorial.html" class="btn btn-neutral float-right" title="4 快速入门教程" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="datadir.html" class="btn btn-neutral" title="3.6 GMT 数据库的建立" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3.7 目录结构<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>安装好GMT之后，可以看看GMT安装路径下的目录结构，看看GMT究竟安装了哪些东西。</p>
+<p>本文用 <code class="docutils literal"><span class="pre">$GMTHOME</span></code> 表示GMT的安装路径，在Linux下一般是 <code class="file docutils literal"><span class="pre">/usr/local/GMT5</span></code>
+或 <code class="file docutils literal"><span class="pre">/opt/GMT5</span></code> ，在Windows下一般是 <code class="docutils literal"><span class="pre">C:\programs\gmt5</span></code> 。</p>
+<p><code class="docutils literal"><span class="pre">$GMTHOME</span></code> 中包含了GMT的全部文件。下面列出了 <code class="docutils literal"><span class="pre">$GMTHOME</span></code> 的目录树，并对其中
+重要的文件及目录做简单解释。以下内容以Linux系统为准，Windows系统有微小差异:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>.
+<span class="p">|</span>-- bin
+<span class="p">|</span>-- include
+<span class="p">|</span>-- lib64
+<span class="sb">`</span>-- share
+</pre></div>
+</div>
+<div class="section" id="bin">
+<h2>3.7.1 <code class="docutils literal"><span class="pre">bin</span></code> 目录<a class="headerlink" href="#bin" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">bin</span></code> 目录下包含如下文件:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin
+<span class="p">|</span>-- gmt                         <span class="c1"># GMT主程序</span>
+<span class="p">|</span>-- isogmt                      <span class="c1"># GMT主程序（隔离模式）</span>
+<span class="p">|</span>-- gmt-config                  <span class="c1"># GMT安装信息获取工具</span>
+<span class="p">|</span>-- gmt_shell_functions.sh      <span class="c1"># bash辅助脚本（仅使用于Linux/macOS）</span>
+<span class="p">|</span>-- gmtswitch                   <span class="c1"># GMT版本切换工具</span>
+<span class="p">|</span>-- gmt.m                       <span class="c1"># GMT/MATLAB工具包（仅限于Windows）</span>
+<span class="sb">`</span>-- *.dll                       <span class="c1"># 动态库文件（仅限于Windows）</span>
+</pre></div>
+</div>
+<p>几点注意事项：</p>
+<ol class="arabic simple">
+<li>bin目录下除了上面提到的文件之外，可能还有很多类似 <code class="docutils literal"><span class="pre">psxy</span></code> 、 <code class="docutils literal"><span class="pre">grdimage</span></code>
+这样的文件，其本质上是指向二进制文件 <code class="docutils literal"><span class="pre">gmt</span></code> 的软链接。这些软链接的目的
+是为了部分兼容GMT4的语法，所以这些软链接都可以手动删除；</li>
+<li>bin目录下需要使用的只有 <code class="docutils literal"><span class="pre">gmt</span></code> ，即 <code class="docutils literal"><span class="pre">gmt</span></code> 可以认为是GMT5中唯一的一个命令。</li>
+</ol>
+</div>
+<div class="section" id="include">
+<h2>3.7.2 <code class="docutils literal"><span class="pre">include</span></code> 目录<a class="headerlink" href="#include" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">inlcude</span></code> 目录下有 <code class="docutils literal"><span class="pre">gmt</span></code> 子目录， <code class="docutils literal"><span class="pre">gmt</span></code> 子目录中包含了GMT的头文件:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>include
+<span class="sb">`</span>-- gmt
+</pre></div>
+</div>
+<p>仅当自己写程序调用GMT函数库时才需要使用这些头文件，因而一般用户不需要关注。</p>
+</div>
+<div class="section" id="lib">
+<h2>3.7.3 <code class="docutils literal"><span class="pre">lib</span></code> 目录<a class="headerlink" href="#lib" title="永久链接至标题">¶</a></h2>
+<p>32位系统下目录名为 <code class="docutils literal"><span class="pre">lib</span></code> ，64位系统下目录名为 <code class="docutils literal"><span class="pre">lib64</span></code> 或 <code class="docutils literal"><span class="pre">lib</span></code> ，以下统称
+为 <code class="docutils literal"><span class="pre">lib</span></code> 目录。 <code class="docutils literal"><span class="pre">lib</span></code> 目录下包含了GMT的动态库文件:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>lib
+<span class="p">|</span>-- gmt
+<span class="p">|</span>   <span class="sb">`</span>-- plugins
+<span class="p">|</span>       <span class="sb">`</span>-- supplements.so          <span class="c1"># GMT扩展函数库</span>
+<span class="p">|</span>-- libgmt.so                       <span class="c1"># GMT主函数库</span>
+<span class="sb">`</span>-- libpostscriptlight.so           <span class="c1"># PSL绘图函数库</span>
+</pre></div>
+</div>
+<p>仅当自己写代码调用GMT函数库时才需要使用，因而一般用户不需要关注。</p>
+</div>
+<div class="section" id="share">
+<h2>3.7.4 <code class="docutils literal"><span class="pre">share</span></code> 目录<a class="headerlink" href="#share" title="永久链接至标题">¶</a></h2>
+<p>share目录中包含了GMT运行所需的众多辅助文件:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>share
+<span class="p">|</span>-- VERSION                     <span class="c1"># GMT版本号</span>
+<span class="p">|</span>-- coast                       <span class="c1"># 含海岸线数据</span>
+<span class="p">|</span>-- cpt                         <span class="c1"># 含全局CPT文件</span>
+<span class="p">|</span>-- custom                      <span class="c1"># 包含GMT自定义符号的def文件</span>
+<span class="p">|</span>   <span class="sb">`</span>-- gmt_custom_symbols.conf     <span class="c1"># 用户自定义符号的配置文件</span>
+<span class="p">|</span>-- dbase                       <span class="c1"># 含grdraster命令所使用的数据库（默认无数据）</span>
+<span class="p">|</span>   <span class="sb">`</span>-- grdraster.info              <span class="c1"># grdraster命令的配置文件</span>
+<span class="p">|</span>-- dcw                         <span class="c1"># 含国界、省界数据</span>
+<span class="p">|</span>-- doc                         <span class="c1"># 官方文档</span>
+<span class="p">|</span>   <span class="p">|</span>-- examples                    <span class="c1"># 官方示例</span>
+<span class="p">|</span>   <span class="p">|</span>-- html                        <span class="c1"># 官方文档网页版</span>
+<span class="p">|</span>   <span class="p">|</span>-- pdf                         <span class="c1"># 官方文档PDF版</span>
+<span class="p">|</span>   <span class="p">|</span>-- supplements                 <span class="c1"># 补充包的说明文档</span>
+<span class="p">|</span>   <span class="sb">`</span>-- tutorial                    <span class="c1"># GMT教程中所使用的数据</span>
+<span class="p">|</span>-- localization                <span class="c1"># 不同语言的时间定义</span>
+<span class="p">|</span>-- man                         <span class="c1"># man格式文档</span>
+<span class="p">|</span>-- postscriptlight             <span class="c1"># PS所需要的文件</span>
+<span class="p">|</span>   <span class="p">|</span>-- PSL_custom_media.conf   <span class="c1"># 用户自定义的纸张大小</span>
+<span class="p">|</span>   <span class="sb">`</span>-- PSL_custom_fonts.txt    <span class="c1"># 用户自定义的PS字体</span>
+<span class="p">|</span>-- spotter                     <span class="c1"># 板块运动相关数据</span>
+<span class="p">|</span>-- tools                       <span class="c1"># GMT辅助工具</span>
+<span class="p">|</span>-- mgd77                       <span class="c1"># mgd77辅助文件</span>
+<span class="p">|</span>-- mgg                         <span class="c1"># mgg辅助文件</span>
+<span class="sb">`</span>-- x2sys                       <span class="c1"># x2sys辅助文件</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorial.html" class="btn btn-neutral float-right" title="4 快速入门教程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="datadir.html" class="btn btn-neutral" title="3.6 GMT 数据库的建立" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

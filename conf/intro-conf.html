@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.1 GMT配置简介 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="8 配置GMT" href="../configurations.html"/>
+        <link rel="next" title="8.2 COLOR参数" href="color.html"/>
+        <link rel="prev" title="8 配置GMT" href="../configurations.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../configurations.html">8 配置GMT</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1 GMT配置简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">8.1.1 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8.1.2 设计思路</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">8.1.3 修改GMT配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">8.1.4 删除配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">8.1.5 GMT配置示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">8.2 COLOR参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir.html">8.3 DIR参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">8.4 FONT参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html">8.5 FORMAT参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">8.6 IO参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map.html">8.7 MAP参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proj.html">8.8 PROJ参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ps.html">8.9 PS参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">8.10 TIME参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">8.11 其他参数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../configurations.html">8 配置GMT</a> &raquo;</li>
+        
+      <li>8.1 GMT配置简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/conf/intro-conf.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="color.html" class="btn btn-neutral float-right" title="8.2 COLOR参数" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../configurations.html" class="btn btn-neutral" title="8 配置GMT" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gmt">
+<h1>8.1 GMT配置简介<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>8.1.1 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>GMT的每个模块都有众多选项，除此之外，GMT还有100多个参数，用于控制图像的外观和数据的处理方式。</p>
+<p>所有GMT参数都有一个系统默认值，你可以使用 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">defaults</span> <span class="pre">-D</span></code> 命令查看所有参数的
+系统默认值.</p>
+<p>当执行一个GMT程序时，首先会将所有参数初始化为系统默认值，然后去搜索 <code class="file docutils literal"><span class="pre">gmt.conf</span></code>
+文件。若找到该文件，则会读取该文件中的参数值并覆盖系统默认值。</p>
+<p><code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件的搜索路径按优先级排序为： <code class="file docutils literal"><span class="pre">./gmt.conf</span></code> &gt; <code class="file docutils literal"><span class="pre">~/.gmt/gmt.conf</span></code> &gt; <code class="file docutils literal"><span class="pre">~/gmt.conf</span></code> 。即GMT程序首先会在当前目录寻找配置文件；若未找到，则到 <code class="file docutils literal"><span class="pre">~/.gmt</span></code> 目录下寻找；若仍为找到，则在家目录下寻找。</p>
+</div>
+<div class="section" id="id2">
+<h2>8.1.2 设计思路<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT将这100多个参数单独放置在配置文件 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 中，主要是基于两方面的考虑：</p>
+<ol class="arabic simple">
+<li>让每个模块的命令行语法中都涵盖如此多的参数是不实际的，这些参数有些很少或几乎不需要改变（比如地图投影过程中使用的地球椭率）</li>
+<li>针对不同的应用环境，设置不同的GMT配置文件，保存到不同的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件中，当需要使用一组特定的GMT配置时，可以在GMT命令行中使用 <code class="docutils literal"><span class="pre">+&lt;defaultfile&gt;</span></code> 来指定要使用的配置文件。比如，不同的期刊可能要求不同的字体和字号，你可以使用同样的脚本加上不同的配置文件来满足不同期刊的要求；又比如，用于出版的图件和用于PowerPoint演示的图件通常需要用不同的颜色和字号。将这些参数保存到单独的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 配置文件中，可以尽可能的避免由于环境不同而导致的图片微调。</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>8.1.3 修改GMT配置<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>GMT系统自带的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件中对每个参数都给了一个合理的默认值，但有时用户需要修改这些参数值，GMT提供了多种方法来实现修改。</p>
+<ol class="arabic">
+<li><p class="first">在单个GMT命令中使用 <code class="docutils literal"><span class="pre">+&lt;defaultfile&gt;</span></code> 的语法，来指定使用配置文件 <code class="docutils literal"><span class="pre">&lt;defaultfile&gt;</span></code>，该方法仅对单个命令有效:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt psxy ... +custom_gmt.conf &gt; test.ps
+</pre></div>
+</div>
+</li>
+<li><p class="first">在脚本开始执行之前，将要使用的配置文件 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 复制到当前目录，待脚本执行完毕后，删除该配置文件。该方法要求写脚本时要非常小心，因为若脚本因为错误出现中断，会影响到配置文件的删除，进而可能导致反效果的出现。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cp ~/somewhere/gmt.conf ./gmt.conf
+gmt psxy ...
+gmt pscoast ...
+gmt psxy ...
+rm gmt.conf
+</pre></div>
+</div>
+</li>
+<li><p class="first">用 <code class="docutils literal"><span class="pre">gmtset</span></code> 模块在脚本执行的过程中显式地修改GMT参数值</p>
+<p>比如，需要设置主标注的字体为 <code class="docutils literal"><span class="pre">12p,Times-Bold,red</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt gmtset FONT_ANNOT_PRIMARY 12p,Times-Bold,red
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">gmtset</span></code> 会修改当前目录下的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件中的相应参数值，进而影响到接下来其它GMT程序的执行。若当前目录没有 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件，则 <code class="docutils literal"><span class="pre">gmtset</span></code> 会先复制系统自带的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件，再修改之。该命令修改的参数将一直生效，直到被新值覆盖。</p>
+</li>
+<li><p class="first">若你需要修改某些参数值，使得其在执行单个命令时有效，而不影响其他命令的执行效果，可以考虑在该命令行上使用 <code class="docutils literal"><span class="pre">--PAR=value</span></code> 语法。</p>
+<p>比如，针对某个GMT命令，为了临时设置浮点数的输出格式包含更多的小数位，而不影响其他命令的浮点数输出格式，可以在该命令中加上 <code class="docutils literal"><span class="pre">--FORMAT_FLOAT_OUT=%.16lg</span></code> 。</p>
+</li>
+<li><p class="first">GMT提供了“隔离”模式，使得仅在单个脚本执行的过程中修改配置，当脚本执行完毕后自动恢复到原始配置，见附录 <a class="reference internal" href="../appendix/isolation-mode.html"><span class="doc">隔离模式</span></a> 一节</p>
+</li>
+</ol>
+<p>一般情况下，仅推荐使用方法三和方法四。</p>
+<p>在使用方法三的时候，需要注意一个潜在的问题。假如一个脚本中，只有三个命令，首先执行了GMT命令A，然后使用 <code class="docutils literal"><span class="pre">gmtset</span></code> 将字体由默认字体a修改为字体b，然后又执行了GMT命令B。则命令A使用的是字体a，命令B使用的是字体b，这是自己想要的效果，到此为止都是没有问题的。若再次执行该脚本，由于当前目录下已经有了上一次执行生成的 <code class="file docutils literal"><span class="pre">gmt.conf</span></code> 文件，且文件中使用的是字体b，则命令A受到该参数文件的影响使用了字体b， <code class="docutils literal"><span class="pre">gmtset</span></code> 将字体b修改为字体b，命令B使用字体b。这导致了执行同一个脚本出现了不同的结果，经常会浪费很多的时间用来调试和排错。最好的做法是在脚本结束时删除当前目录下的参数文件，甚至删除其他一些中间文件。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt psxy ...
+gmt pscoast ..
+gmt gmtset ...
+gmt grdimage ...
+gmt psxy ...
+
+rm gmt.conf gmt.history <span class="c1"># 要养成删除临时文件的习惯</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>8.1.4 删除配置文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>GMT 从5.4.0版本开始新增了 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">clear</span> <span class="pre">conf</span></code> 命令，可以用于删除配置文件 <code class="docutils literal"><span class="pre">gmt.conf</span></code>，
+其等效于 <code class="docutils literal"><span class="pre">rm</span> <span class="pre">gmt.conf</span></code> 命令。</p>
+</div>
+<div class="section" id="id5">
+<h2>8.1.5 GMT配置示例<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>下面列出部分会影响到绘图效果的GMT参数。</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/GMT_Defaults_1.png"><img alt="../_images/GMT_Defaults_1.png" src="../_images/GMT_Defaults_1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 8.1 </span><span class="caption-text">GMT配置参数示例1</span></p>
+</div>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/GMT_Defaults_2.png"><img alt="../_images/GMT_Defaults_2.png" src="../_images/GMT_Defaults_2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 8.2 </span><span class="caption-text">GMT配置参数示例2</span></p>
+</div>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/GMT_Defaults_3.png"><img alt="../_images/GMT_Defaults_3.png" src="../_images/GMT_Defaults_3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">图 8.3 </span><span class="caption-text">GMT配置参数示例3</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="color.html" class="btn btn-neutral float-right" title="8.2 COLOR参数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../configurations.html" class="btn btn-neutral" title="8 配置GMT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.2 Linux 下的 GMT 中文支持 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="3 安装" href="../install.html"/>
+        <link rel="next" title="3.3 Windows 下安装 GMT" href="windows.html"/>
+        <link rel="prev" title="3.1 Linux 下安装GMT" href="linux.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../install.html">3 安装</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="linux.html">3.1 Linux 下安装GMT</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2 Linux 下的 GMT 中文支持</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.2.1 准备工作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gs">安装gs中文配置文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gmt">GMT 字体配置文件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.2.2 使 gs 支持中文</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">gs 中文配置文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">添加 Windows 中文字体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gs-windows">测试 gs 对 Windows 中文字体的支持</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.3 使 GMT 支持中文</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">修改 GMT 字体配置文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">查看 GMT 当前支持的字体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">GMT 中文测试</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.2.4 对其他发行版的若干说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#centos-6">CentOS 6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-14-04-15-04">Ubuntu 14.04/15.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-12-04">Ubuntu 12.04</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.2.5 参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html">3.3 Windows 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cn-windows.html">3.4 Windows 下的 GMT 中文支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macOS.html">3.5 macOS 下安装 GMT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datadir.html">3.6 GMT 数据库的建立</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory-tree.html">3.7 目录结构</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../install.html">3 安装</a> &raquo;</li>
+        
+      <li>3.2 Linux 下的 GMT 中文支持</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/install/cn-linux.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="windows.html" class="btn btn-neutral float-right" title="3.3 Windows 下安装 GMT" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="linux.html" class="btn btn-neutral" title="3.1 Linux 下安装GMT" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linux-gmt">
+<h1>3.2 Linux 下的 GMT 中文支持<a class="headerlink" href="#linux-gmt" title="永久链接至标题">¶</a></h1>
+<p>GMT 原生并不支持中文。为了让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。
+不同的 Linux 发行版下 GMT 中文支持的原理相同，但修改细节不同。
+这里先介绍 CentOS 7 上的修改方法，非 CentOS 7 用户可以先看 CentOS 7 的方法原理，
+再阅读后面的对其他发行版指导。</p>
+<div class="section" id="id1">
+<h2>3.2.1 准备工作<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="gs">
+<h3>安装gs中文配置文件<a class="headerlink" href="#gs" title="永久链接至标题">¶</a></h3>
+<p>大多数发行版都已经默认安装了gs。除此之外，还需要安装gs的简体中文配置文件。CentOS 7
+下gs简体中文配置文件需要通过如下命令安装:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo yum install ghostscript-chinese-zh_CN
+</pre></div>
+</div>
+<p>安装完成后，中文配置文件的路径为 <code class="docutils literal"><span class="pre">/usr/share/ghostscript/conf.d/cidfmap.zh_CN</span></code> ，
+以下称为 ghostscript 中文配置文件。</p>
+</div>
+<div class="section" id="gmt">
+<h3>GMT 字体配置文件<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h3>
+<p>假定 GMT 的安装路径为 <code class="docutils literal"><span class="pre">/opt/GMT-5.4.3</span></code> ，则字体配置文件的路径为
+<code class="docutils literal"><span class="pre">/opt/GMT-5.4.3/share/postscriptlight/PSL_custom_fonts.txt</span></code> 。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>3.2.2 使 gs 支持中文<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>gs 中文配置文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>CentOS 7 中 ghostscript 中文配置文件的默认内容为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/MSungGBK-Light     /BousungEG-Light-GB <span class="p">;</span>
+/Adobe-GB1      /BousungEG-Light-GB <span class="p">;</span>
+</pre></div>
+</div>
+<p>其中的细节可能看不懂，但是可以大概总结如下：</p>
+<ul class="simple">
+<li>第一行定义了字体名为 <code class="docutils literal"><span class="pre">/BousungEG-Light-GB</span></code> ，对应的字体文件为 <code class="docutils literal"><span class="pre">/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc</span></code> ，也就是文泉驿正黑；</li>
+<li>第二行定义了字体名为 <code class="docutils literal"><span class="pre">/GBZenKai-Medium</span></code> ，对应的字体文件也是文泉驿正黑；</li>
+<li>第三行和第四行分别定义了字体名 <code class="docutils literal"><span class="pre">/MSungGBK-Light</span></code> 和 <code class="docutils literal"><span class="pre">/Adobe-GB1</span></code> ，这两种都对应于 <code class="docutils literal"><span class="pre">/BousungEG-Light-GB</span></code> ，相当于给字体定义了别名。</li>
+</ul>
+<p>关于配置文件的几点说明：</p>
+<ul class="simple">
+<li>字体名是任意的，比如字体名可以取为 <code class="docutils literal"><span class="pre">/ABC</span></code> ；</li>
+<li>字体文件似乎只能是 <code class="docutils literal"><span class="pre">ttc</span></code> 或 <code class="docutils literal"><span class="pre">ttf</span></code> 格式的，当然修改参数也有可能可以使用其他格式的字体；</li>
+<li>要注意确认字体文件是否存在，比如 CentOS7 下的 <code class="docutils literal"><span class="pre">wqy-zenhei.ttc</span></code> 字体实际上
+位于软件包 <code class="docutils literal"><span class="pre">wqy-zenhei-fonts</span></code> 中。若字体不存在，则需要安装相应软件包。</li>
+</ul>
+</div>
+<div class="section" id="windows">
+<h3>添加 Windows 中文字体<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
+<p>Linux 的中文字体较少，所以这里使用 Windows 下中的中文字体，这里只考虑 Windows 下的
+宋体、仿宋、黑体和楷体四个基本字体。将这四个字体文件复制到 <code class="docutils literal"><span class="pre">/usr/share/fonts/winfonts/</span></code>
+目录下，然后对 gs 的中文配置文件做如下修改:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>% 原内容保持不变
+/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/MSungGBK-Light     /BousungEG-Light-GB <span class="p">;</span>
+/Adobe-GB1      /BousungEG-Light-GB <span class="p">;</span>
+
+% 新增 Windows 字体的支持
+/STSong-Light &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simsun.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STFangsong-Light &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simfang.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STHeiti-Regular &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simhei.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STKaiti-Regular &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simkai.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+</pre></div>
+</div>
+<p>这里仅以 Windows 下的常用四大字体为例。对于 Windows 下的其他中文字体、Linux 的
+其他中文字体甚至日韩字体来说，方法类似。</p>
+</div>
+<div class="section" id="gs-windows">
+<h3>测试 gs 对 Windows 中文字体的支持<a class="headerlink" href="#gs-windows" title="永久链接至标题">¶</a></h3>
+<p>用 <strong>编辑器</strong> 新建一个 PS 文件，名为 <code class="docutils literal"><span class="pre">windows_fonts.ps</span></code> ，其内容为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>%! PS-Adobe-3. <span class="m">0</span>
+/STSong-Light--UniGB-UTF8-H findfont <span class="m">20</span> scalefont setfont
+<span class="m">150</span> <span class="m">400</span> moveto
+<span class="o">(</span>Song Typeface 宋体<span class="o">)</span> show
+
+/STFangsong-Light--UniGB-UTF8-H findfont <span class="m">20</span> scalefont setfont
+<span class="m">150</span> <span class="m">375</span> moveto
+<span class="o">(</span>Fangsong Typeface 仿宋体<span class="o">)</span> show
+
+/STHeiti-Regular--UniGB-UTF8-H findfont <span class="m">20</span> scalefont setfont
+<span class="m">150</span> <span class="m">350</span> moveto
+<span class="o">(</span>Hei Typeface 黑体<span class="o">)</span> show
+
+/STKaiti-Regular--UniGB-UTF8-H findfont <span class="m">20</span> scalefont setfont
+<span class="m">150</span> <span class="m">325</span> moveto
+<span class="o">(</span>Kai Typeface 楷体<span class="o">)</span> show
+
+showpage
+%%Trailer
+%%EOF
+</pre></div>
+</div>
+<p>简单解释一下，PS 文件中要使用某个中文字体，需要用 <code class="docutils literal"><span class="pre">FontName--CMap</span></code> 的格式来调用。
+其中 <code class="docutils literal"><span class="pre">FontName</span></code> 即 gs 中文配置文件中给定的字体名。CMap 可以取 <code class="docutils literal"><span class="pre">UniGB-UTF8-H</span></code>
+和 <code class="docutils literal"><span class="pre">GB-EUC-H</span></code> ， Linux 下一般用前者，Windows 下一般用后者，用于指定汉字或中文
+字体的编码。</p>
+<p>用 gs 查看该 PS 文件，若正确显示中文如下图，则表明 gs 已支持 Windows 字体。</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/GMT_chinese_windows_fonts.png"><img alt="../_images/GMT_chinese_windows_fonts.png" src="../_images/GMT_chinese_windows_fonts.png" style="width: 500px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3.2.3 使 GMT 支持中文<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>修改 GMT 字体配置文件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>打开 GMT 字体配置文件，在文件最后加入如下语句（以 Windows 下的四大常用字体为例）:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>STSong-Light--UniGB-UTF8-H  <span class="m">0</span>.700    <span class="m">1</span>
+STFangsong-Light--UniGB-UTF8-H  <span class="m">0</span>.700    <span class="m">1</span>
+STHeiti-Regular--UniGB-UTF8-H   <span class="m">0</span>.700   <span class="m">1</span>
+STKaiti-Regular--UniGB-UTF8-H   <span class="m">0</span>.700   <span class="m">1</span>
+</pre></div>
+</div>
+<p>第一列为字体名，第二列为字母 A 的高度，第三列与编码有关。</p>
+</div>
+<div class="section" id="id6">
+<h3>查看 GMT 当前支持的字体<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>用 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">pstext</span> <span class="pre">-L</span></code> 命令查看 GMT 当前的字体配置:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gmt pstext -L
+Font <span class="c1">#  Font Name</span>
+------------------------------------
+<span class="m">0</span>   Helvetica
+<span class="m">1</span>   Helvetica-Bold
+...    ......
+<span class="m">39</span> STSong-Light--UniGB-UTF8-H
+<span class="m">40</span> STFangsong-Light--UniGB-UTF8-H
+<span class="m">41</span> STHeiti-Regular--UniGB-UTF8-H
+<span class="m">42</span> STKaiti-Regular--UniGB-UTF8-H
+</pre></div>
+</div>
+<p>其中 0-38 为 GMT/gs 默认支持的西文字体，39-42 为新添加的中文字体。
+以后要用中文字体时，需要用这些编号来指定字体，也许你的机器上的编号和这里不同。</p>
+</div>
+<div class="section" id="id7">
+<h3>GMT 中文测试<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>测试脚本：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+gmt <span class="nb">set</span> FONT_TITLE 30p,39,black
+gmt <span class="nb">set</span> FONT_LABEL 15p,39,black
+
+gmt pstext -R0/10/0/4 -JX15c/5c -Bxafg+l<span class="s2">&quot;X轴&quot;</span> -Byafg+l<span class="s2">&quot;Y轴&quot;</span> <span class="se">\</span>
+         -BWSen+t<span class="s2">&quot;中文标题&quot;</span> -F+f -P &gt; cn.ps <span class="s">&lt;&lt; EOF</span>
+<span class="s">3 2.5 35p,39,black GMT宋体</span>
+<span class="s">3 1.0 35p,40,blue GMT仿宋</span>
+<span class="s">7 2.5 35p,41,yellow GMT黑体</span>
+<span class="s">7 1.0 35p,42,green GMT楷体</span>
+<span class="s">EOF</span>
+
+rm gmt.history gmt.conf
+</pre></div>
+</div>
+<p>成图效果如下：</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/GMT_chinese.png"><img alt="../_images/GMT_chinese.png" src="../_images/GMT_chinese.png" style="width: 400px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>3.2.4 对其他发行版的若干说明<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>其他发行版与 CentOS 7 之间或多或少有一些区别，列举如下。</p>
+<div class="section" id="centos-6">
+<h3>CentOS 6<a class="headerlink" href="#centos-6" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">gs 中文配置文件需要用如下命令安装:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo yum install cjkuni-fonts-ghostscript
+</pre></div>
+</div>
+<p>在安装配置文件的同时会安装中文字体 uming 和 ukai</p>
+</li>
+<li><p class="first">gs 中文配置文件中给定的字体路径： <code class="docutils literal"><span class="pre">/usr/share/fonts/cjkuni/uming.ttc</span></code>
+和 <code class="docutils literal"><span class="pre">/usr/share/fonts/cjkuni/ukai.ttc</span></code> 是错误的。正确的字体路径是
+<code class="docutils literal"><span class="pre">/usr/share/fonts/cjkui-uming/uming.ttc</span></code> 和
+<code class="docutils literal"><span class="pre">/usr/share/fonts/cjkuni-ukai/ukai.ttc</span></code> ，要注意改正。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ubuntu-14-04-15-04">
+<h3>Ubuntu 14.04/15.04<a class="headerlink" href="#ubuntu-14-04-15-04" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">gs 中文配置文件可以用如下命令安装（默认已安装）:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install poppler-data
+</pre></div>
+</div>
+</li>
+<li><p class="first">gs 中文配置文件路径为： <code class="docutils literal"><span class="pre">/etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf</span></code></p>
+</li>
+<li><p class="first">gs 中文配置文件中默认使用的 Linux 字体为 uming 和 ukai，需要通过如下命令安装:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install fonts-arphic-uming fonts-arphic-ukai
+</pre></div>
+</div>
+</li>
+<li><p class="first">gs 中文配置文件的默认内容为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/truetype/arphic/uming.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/truetype/arphic/ukai.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/Song-Medium /GBZenKai-Medium <span class="p">;</span>
+/STSong-Light /BousungEG-Light-GB <span class="p">;</span>
+/STFangsong-Light /BousungEG-Light-GB <span class="p">;</span>
+/STHeiti-Regular /BousungEG-Light-GB <span class="p">;</span>
+/STKaiti-Regular /BousungEG-Light-GB <span class="p">;</span>
+/Adobe-GB1      /BousungEG-Light-GB <span class="p">;</span>
+/Adobe-GB1-Bold /GBZenKai-Medium <span class="p">;</span>
+</pre></div>
+</div>
+<p>需要将该文件改成:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>% 原配置文件的内容，与 STSong-Light 等相关的四行必须删除
+/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/truetype/arphic/uming.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/truetype/arphic/ukai.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/Song-Medium /GBZenKai-Medium <span class="p">;</span>
+/Adobe-GB1      /BousungEG-Light-GB <span class="p">;</span>
+/Adobe-GB1-Bold /GBZenKai-Medium <span class="p">;</span>
+
+% 新增 Windows 字体的支持
+/STSong-Light &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simsun.ttc<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STFangsong-Light &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simfang.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STHeiti-Regular &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simhei.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+/STKaiti-Regular &lt;&lt;/FileType /TrueType /Path <span class="o">(</span>/usr/share/fonts/winfonts/simkai.ttf<span class="o">)</span> /SubfontId <span class="m">0</span> /CSI <span class="o">[(</span>GB1<span class="o">)</span> <span class="m">4</span><span class="o">]</span> &gt;&gt; <span class="p">;</span>
+</pre></div>
+</div>
+<p>修改完 gs 中文配置文件后，必须要执行如下命令:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo update-gsfontmap
+</pre></div>
+</div>
+<p>该命令会将 <code class="docutils literal"><span class="pre">/etc/ghostscript/cidfmap.d/*.conf</span></code> 合并成单独的文件
+<code class="docutils literal"><span class="pre">/var/lib/ghostscript/fonts/cidfmap</span></code> 。gs 在需要中文字体时会读取
+<code class="docutils literal"><span class="pre">/var/lib/ghostscript/fonts/cidfmap</span></code> 而不是
+<code class="docutils literal"><span class="pre">/etc/ghostscript/cidfmap.d/*.conf</span></code> 。这是 Ubuntu/Debian 和 CentOS 的
+一个很大不同。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ubuntu-12-04">
+<h3>Ubuntu 12.04<a class="headerlink" href="#ubuntu-12-04" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">gs 中文配置文件需要用如下命令安装:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install gs-cjk-resource
+</pre></div>
+</div>
+</li>
+<li><p class="first">其他部分未做测试，估计跟 Ubuntu 15.05 差不多。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>3.2.5 参考资料<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li>GMT 软件显示汉字的技术原理与实现，赵桂儒，《测绘通报》</li>
+<li><a class="reference external" href="http://guoyoooping.blog.163.com/blog/static/13570518320101291442176">ghostscript 中文打印经验</a></li>
+<li><a class="reference external" href="http://xxqhome.blog.163.com/blog/static/1967330202011112810120598/">GMT 中文支持</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/PostScript">维基词条：PostScript</a></li>
+<li><a class="reference external" href="https://wiki.debian.org/gs-undefoma">Debian Wiki</a></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="windows.html" class="btn btn-neutral float-right" title="3.3 Windows 下安装 GMT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="linux.html" class="btn btn-neutral" title="3.1 Linux 下安装GMT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

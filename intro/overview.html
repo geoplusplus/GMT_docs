@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1 GMT简介 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="2 简介" href="../intro.html"/>
+        <link rel="next" title="2.2 GMT版本" href="versions.html"/>
+        <link rel="prev" title="2 简介" href="../intro.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">2 简介</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1 GMT简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1.1 GMT是什么</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.2 GMT的历史</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.3 GMT维护者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.1.4 GMT的特点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.1.5 跨平台特性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.1.6 GMT替代品</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="versions.html">2.2 GMT版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html">2.3 设计哲学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux-basic.html">2.4 Linux命令行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-learning.html">2.5 GMT学习资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation.html">2.6 引用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../intro.html">2 简介</a> &raquo;</li>
+        
+      <li>2.1 GMT简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/intro/overview.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="versions.html" class="btn btn-neutral float-right" title="2.2 GMT版本" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro.html" class="btn btn-neutral" title="2 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gmt">
+<h1>2.1 GMT简介<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.1.1 GMT是什么<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>GMT，全称Generic Mapping Tools，中文一般译为“通用制图工具”。GMT不仅可以用于
+绘制不同类型的地图，还可以绘制常见的笛卡尔坐标轴（线性轴、对数轴和指数轴）。
+除此之外，GMT还有一些数据处理和分析的功能，比如多项式拟合、数据滤波、线性回归
+分析等。</p>
+</div>
+<div class="section" id="id2">
+<h2>2.1.2 GMT的历史<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>1988年，Paul Wessel和Walter H.F. Smith开发了GMT的最原始版本GMT 1.0</li>
+<li>1991年8月10日，GMT 2.0发布</li>
+<li>1998年11月8日，GMT 3.x的第一个正式版发布</li>
+<li>2005年10月1日，GMT 4.x的第一个正式版发布；目前最新版本 GMT 4.5.17
+发布于  2018-01-01</li>
+<li>2013年11月5日，GMT 5.x的第一个正式版发布；目前最新版本 GMT 5.4.3
+发布于  2018-01-01</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>2.1.3 GMT维护者<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/GMT5_Summit_2016.jpg"><img alt="../_images/GMT5_Summit_2016.jpg" src="../_images/GMT5_Summit_2016.jpg" style="width: 1200px;" /></a>
+<p class="caption"><span class="caption-number">图 2.1 </span><span class="caption-text">GMT目前的5个维护者：Joaquim Luis、Walter H.F. Smith、Remko Scharroo、Florian Wobbe 和 Paul Wessel</span></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>2.1.4 GMT的特点<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>为什么选择GMT作为绘图软件呢？因为GMT有如下特点：</p>
+<ol class="arabic">
+<li><p class="first">开源免费</p>
+<p>GMT是开源软件，其源码遵循 <a class="reference external" href="https://zh.wikipedia.org/zh-cn/GNU宽通用公共许可证">LGPL</a>
+协议。任何人均可自由复制、分发、修改其源代码，也可用于盈利。修改后的代码
+必须开源但可以使用其他开源协议。</p>
+</li>
+<li><p class="first">跨平台</p>
+<p>GMT的源码采用了高度可移植的ANSI C语言，其完全兼容于POSIX标准，几乎不需修改
+即可运行在大多数类UNIX系统上。GMT官方网站不仅提供了软件源码，还提供了供
+Windows 和 macOS 使用的软件安装包。各大Linux发行版中也提供了预编译的二进制版本。</p>
+</li>
+<li><p class="first">模块化</p>
+<p>GMT遵循UNIX的模块化设计思想，将GMT的绘图及数据处理功能划分到不同的模块中。
+这样的模块化设计有很多优点：</p>
+<ul class="simple">
+<li>只需要少量的模块</li>
+<li>各个模块之间相互独立且代码量少，易于更新和维护</li>
+<li>每一步均独立于独立于之前的步骤以及具体的数据类型，因而可以用于不同的应用中</li>
+<li>可以在shell脚本中调用一系列程序，或通过管道连接起来，进而绘制复杂图件</li>
+</ul>
+</li>
+<li><p class="first">高精度矢量图</p>
+<p>GMT绘制得到的图件为PS格式，即PostScript，是一种页面描述语言。PS格式是矢量
+图片格式，可以任意放大缩小而不失真。GMT充分利用PostScript语言的特性，可以
+生成高质量的矢量图件，并可以很容易地转换为其他图片格式。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>2.1.5 跨平台特性<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>GMT 是跨平台的，可以运行在 Linux 及 Windows 下，当然也可以运行在 macOS 下，
+这里姑且认为 macOS 跟 Linux 是同一个东西。</p>
+<p>推荐在 Linux 下使用 GMT，原因如下：</p>
+<ul class="simple">
+<li>GMT 是在 Linux 下开发再移植到 Windows 下的。因而，Windows 版本的 GMT 相对来说有更多的bug</li>
+<li>Linux 自带了众多数据处理工具： <code class="docutils literal"><span class="pre">gawk</span></code> 、 <code class="docutils literal"><span class="pre">cut</span></code> 、 <code class="docutils literal"><span class="pre">paste</span></code> 等</li>
+<li>Windows 下的命令行及 bat 太难用，Linux 下的命令行和 Bash 脚本相对来说更易用</li>
+</ul>
+<p>PS：Windows10 即将自带 Bash，未来有可能可以在 Windows 下写 Bash 脚本，值得期待。</p>
+</div>
+<div class="section" id="id6">
+<h2>2.1.6 GMT替代品<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>在绘制地图方面，还有一些软件也可以实现类似的功能，可以作为GMT的替代品。</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://matplotlib.org/basemap/">Matplotlib Basemap Toolkit for Python</a></li>
+<li><a class="reference external" href="https://www.eoas.ubc.ca/~rich/map.html">M_Map for Matlab</a></li>
+<li><a class="reference external" href="https://github.com/dkahle/ggmap">ggmap for R</a></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="versions.html" class="btn btn-neutral float-right" title="2.2 GMT版本" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro.html" class="btn btn-neutral" title="2 简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

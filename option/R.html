@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1 -R 选项 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="7 标准选项" href="../options.html"/>
+        <link rel="next" title="7.2 -J 选项" href="J.html"/>
+        <link rel="prev" title="7 标准选项" href="../options.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../options.html">7 标准选项</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1 <code class="docutils literal"><span class="pre">-R</span></code> 选项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">7.1.1 四种方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.1.2 五种坐标</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">地理坐标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">投影后坐标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">绝对时间坐标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">相对时间坐标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">笛卡尔坐标</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="J.html">7.2 <code class="docutils literal"><span class="pre">-J</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B.html">7.3 <code class="docutils literal"><span class="pre">-B</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P.html">7.4 <code class="docutils literal"><span class="pre">-P</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V.html">7.5 <code class="docutils literal"><span class="pre">-V</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="U.html">7.6 <code class="docutils literal"><span class="pre">-U</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KO.html">7.7 <code class="docutils literal"><span class="pre">-K</span></code> 和 <code class="docutils literal"><span class="pre">-O</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="XY.html">7.8 <code class="docutils literal"><span class="pre">-X</span></code> 和 <code class="docutils literal"><span class="pre">-Y</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a.html">7.9 <code class="docutils literal"><span class="pre">-a</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binary.html">7.10 <code class="docutils literal"><span class="pre">-b</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d.html">7.11 <code class="docutils literal"><span class="pre">-d</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="e.html">7.12 <code class="docutils literal"><span class="pre">-e</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="f.html">7.13 <code class="docutils literal"><span class="pre">-f</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="g.html">7.14 <code class="docutils literal"><span class="pre">-g</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="h.html">7.15 <code class="docutils literal"><span class="pre">-h</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">7.16 <code class="docutils literal"><span class="pre">-i</span></code> 和 <code class="docutils literal"><span class="pre">-o</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="n.html">7.17 <code class="docutils literal"><span class="pre">-n</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gridreg.html">7.18 <code class="docutils literal"><span class="pre">-r</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perspective.html">7.19 <code class="docutils literal"><span class="pre">-p</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s.html">7.20 <code class="docutils literal"><span class="pre">-s</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="t.html">7.21 <code class="docutils literal"><span class="pre">-t</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="x.html">7.22 <code class="docutils literal"><span class="pre">-x</span></code> 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colon.html">7.23 <code class="docutils literal"><span class="pre">-:</span></code> 选项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../options.html">7 标准选项</a> &raquo;</li>
+        
+      <li>7.1 <code class="docutils literal"><span class="pre">-R</span></code> 选项</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/option/R.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="J.html" class="btn btn-neutral float-right" title="7.2 -J 选项" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../options.html" class="btn btn-neutral" title="7 标准选项" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="r">
+<h1>7.1 <code class="docutils literal"><span class="pre">-R</span></code> 选项<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">-R</span></code> 选项用于指定要绘制的数据范围或地图区域。</p>
+<div class="section" id="id1">
+<h2>7.1.1 四种方法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>可以用四种方式指定数据范围。</p>
+<ol class="arabic">
+<li><p class="first"><code class="docutils literal"><span class="pre">-R&lt;xmin&gt;/&lt;xmax&gt;/&lt;ymin&gt;/&lt;ymax&gt;</span></code></p>
+<p>通过给定X方向和Y方向的最大最小值来指定数据范围，例如 <code class="docutils literal"><span class="pre">-R0/360/-90/90</span></code>
+表示X方向范围是0到360，Y方向范围是-90到90。</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">-R&lt;xlleft&gt;/&lt;ylleft&gt;/&lt;xuright&gt;/&lt;yuright&gt;+r</span></code></p>
+<p>通过给定矩形区域的左下角坐标 <code class="docutils literal"><span class="pre">(xlleft,</span> <span class="pre">ylleft)</span></code> 和右上角坐标 <code class="docutils literal"><span class="pre">(xuright,</span> <span class="pre">yuright)</span></code>
+来指定数据范围，例如 <code class="docutils literal"><span class="pre">-R-90/20/-65/30+r</span></code> 。这种形式通常用于倾斜的地图投影中，
+此时不适合将经线和纬线作为地图边界。</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">-R&lt;gridfile&gt;</span></code></p>
+<p><code class="docutils literal"><span class="pre">&lt;gridfile&gt;</span></code> 为网格文件名，即从该网格文件中读取范围信息。对于某些命令，
+这种方式不仅会从网格中读取范围信息 <code class="docutils literal"><span class="pre">-R</span></code> ，还会读入网格间隔和网格配准信息。</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">-R&lt;code&gt;&lt;x0&gt;/&lt;y0&gt;/&lt;nx&gt;/&lt;ny&gt;</span></code></p>
+<p>该方法仅可在创建网格文件时使用。 <code class="docutils literal"><span class="pre">&lt;code&gt;</span></code> 用于指定网格区域的 <a class="reference internal" href="../basic/anchors.html"><span class="doc">锚点</span></a> 。
+<code class="docutils literal"><span class="pre">&lt;code&gt;</span></code> 所指定的锚点对应的坐标为 <code class="docutils literal"><span class="pre">(x0,</span> <span class="pre">y0)</span></code> ， <code class="docutils literal"><span class="pre">&lt;nx&gt;</span></code> 、 <code class="docutils literal"><span class="pre">&lt;ny&gt;</span></code>
+是X和Y方向的网格数，通过 <code class="docutils literal"><span class="pre">-I</span></code> 选项指定的网格间隔即可计算得到区域范围。</p>
+</li>
+</ol>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/GMT_-R.png"><img alt="../_images/GMT_-R.png" src="../_images/GMT_-R.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 7.1 </span><span class="caption-text"><code class="docutils literal"><span class="pre">-R</span></code> 选项指定数据范围</span></p>
+<div class="legend">
+(a)指定每个维度的极值；(b)指定左下角和右上角的坐标</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>7.1.2 五种坐标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT的坐标轴可以是多种类型，比如地图的经纬度轴、一般的笛卡尔轴、时间轴等等。
+不同类型的轴需要用不同的方式来指定数据的范围。</p>
+<div class="section" id="id3">
+<h3>地理坐标<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>在 <a class="reference internal" href="../io/format.html"><span class="doc">数据格式</span></a> 中已经介绍过地理坐标的格式，既可以用浮点数表示也可以用度分秒表示。</p>
+<p>对于两个常用的地图范围，GMT提供了简写形式， <code class="docutils literal"><span class="pre">-Rg</span></code> 等效于 <code class="docutils literal"><span class="pre">-R0/360/-90/90</span></code> ，
+<code class="docutils literal"><span class="pre">-Rd</span></code> 等效于 <code class="docutils literal"><span class="pre">-R-180/180/-90/90</span></code> 。</p>
+<p>GMT 对于地理投影和线性投影的默认设置有很大区别。有些时候数据是地理坐标，但是
+因为某些原因不能选择地理投影，只能选择线性投影（ <code class="docutils literal"><span class="pre">-JX</span></code> 或 <code class="docutils literal"><span class="pre">-Jx</span></code> ），此时
+可以通过如下几种方式表明当前数据是地理坐标下的数据，而不是简单的笛卡尔坐标：</p>
+<ol class="arabic simple">
+<li>使用 <code class="docutils literal"><span class="pre">-Rg</span></code> 而不是 <code class="docutils literal"><span class="pre">0/360/-90/90</span></code></li>
+<li>使用 <code class="docutils literal"><span class="pre">-Rd</span></code> 而不是 <code class="docutils literal"><span class="pre">-180/180/-90/90</span></code></li>
+<li>使用 <code class="docutils literal"><span class="pre">-Rg&lt;xmin&gt;/&lt;xmax&gt;/&lt;ymin&gt;/&lt;ymax&gt;</span></code> 表明某个有限范围的地理区域</li>
+<li>在范围后加后缀 <code class="docutils literal"><span class="pre">W|E|S|N</span></code> 或更通用的 <code class="docutils literal"><span class="pre">D|G</span></code> ，比如 <code class="docutils literal"><span class="pre">-R0/360G/-90/90N</span></code></li>
+<li>使用 <code class="docutils literal"><span class="pre">-fg</span></code> 选项表明输入数据是地理坐标，见 <a class="reference internal" href="f.html"><span class="doc">-f 选项</span></a></li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">推荐使用 <code class="docutils literal"><span class="pre">-fg</span></code> 这种方式来指定输入数据的类型。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>投影后坐标<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>地理坐标可以通过选择投影方式投影成笛卡尔坐标，可以通过在区域范围后加上 <code class="docutils literal"><span class="pre">+u</span></code>
+子选项以及长度单位来表明这是一个经过投影的地理坐标。</p>
+<p>例如 <code class="docutils literal"><span class="pre">-R-200/200/-300/300+uk</span></code> 表示位于投影中心 <code class="docutils literal"><span class="pre">(0,0)</span></code> 处的一个 <code class="docutils literal"><span class="pre">400km</span> <span class="pre">x</span> <span class="pre">600km</span></code>
+的矩形区域。这些坐标在GMT内部会被转换成对应的地理坐标。当你想要用投影单位指定
+区域时用这种方式会比较方便（例如UTM meters）。</p>
+</div>
+<div class="section" id="id5">
+<h3>绝对时间坐标<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>默认为 <code class="docutils literal"><span class="pre">yyyymmddThh:mm:ss.xxx</span></code> 格式，见 <a class="reference internal" href="../io/format.html"><span class="doc">数据格式</span></a> 一节。</p>
+</div>
+<div class="section" id="id6">
+<h3>相对时间坐标<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>见 <a class="reference internal" href="../io/format.html"><span class="doc">数据格式</span></a> 一节。</p>
+</div>
+<div class="section" id="id7">
+<h3>笛卡尔坐标<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>既可以用浮点数表示也可以用指数表示，见 <a class="reference internal" href="../io/format.html"><span class="doc">数据格式</span></a> 一节。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="J.html" class="btn btn-neutral float-right" title="7.2 -J 选项" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../options.html" class="btn btn-neutral" title="7 标准选项" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

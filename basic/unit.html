@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1 单位 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.2 画布" href="paper.html"/>
+        <link rel="prev" title="5 绘图基础" href="../basics.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.1 单位</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.1.1 长度单位</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.2 距离单位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="paper.html">5.2 画布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">5.6 文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character-escape.html">5.9 转义序列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lines.html">5.10 线条属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectors.html">5.11 绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.1 单位</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/unit.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="paper.html" class="btn btn-neutral float-right" title="5.2 画布" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../basics.html" class="btn btn-neutral" title="5 绘图基础" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>5.1 单位<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>GMT 中使用的单位分为两类：长度单位和距离单位。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">注意这两者的区别，长度单位一般用于度量纸张上的距离，而距离单位用于度量真实地球上的距离。</p>
+</div>
+<div class="section" id="id2">
+<h2>5.1.1 长度单位<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>GMT 中的长度量可以使用厘米（cm）、英寸（inch）或点（point）为单位。它们之间的关系如下:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="nv">inch</span> <span class="o">=</span> <span class="m">2</span>.54 <span class="nv">cm</span> <span class="o">=</span> <span class="m">72</span> point
+</pre></div>
+</div>
+<p>厘米、英寸和点，在 GMT 中分别用 <code class="docutils literal"><span class="pre">c</span></code> 、 <code class="docutils literal"><span class="pre">i</span></code> 和 <code class="docutils literal"><span class="pre">p</span></code> 表示。例如 <code class="docutils literal"><span class="pre">5c</span></code> 表示5厘米， <code class="docutils literal"><span class="pre">3i</span></code> 表示3英寸， <code class="docutils literal"><span class="pre">2p</span></code> 表示2点。</p>
+<p>GMT 中指定长度量的单位有两种方式，即隐式指定单位和显式指定单位。</p>
+<dl class="docutils">
+<dt>隐式指定单位</dt>
+<dd>若没有在长度量后指定长度单位，则 GMT 会根据参数 <a class="reference internal" href="../conf/proj.html#proj-length-unit"><span class="std std-ref">PROJ_LENGTH_UNIT</span></a> 的默认长度单位对该长度量进行解释。比如 <code class="docutils literal"><span class="pre">-X4</span></code> 中的长度量 <code class="docutils literal"><span class="pre">4</span></code> 会根据 <a class="reference internal" href="../conf/proj.html#proj-length-unit"><span class="std std-ref">PROJ_LENGTH_UNIT</span></a> 取值的不同而被解释为4厘米、4英寸或4点。</dd>
+<dt>显式指定单位</dt>
+<dd>即在长度量后直接加上单位以显式地指定当前长度量要使用的单位。比如 <code class="docutils literal"><span class="pre">-X4c</span></code> 中的长度量会被唯一地解释为4厘米，而不依赖于 <a class="reference internal" href="../conf/proj.html#proj-length-unit"><span class="std std-ref">PROJ_LENGTH_UNIT</span></a> 的取值。</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">使用 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">get</span> <span class="pre">PROJ_LENGTH_UNIT</span></code> 或 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">defaults</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">PROJ_LENGTH_UNIT</span></code> 命令可以看到 GMT 中默认的长度单位。</p>
+</div>
+<p>使用长度单位时，建议遵循如下几条：</p>
+<ul class="simple">
+<li>始终显式指定长度量的单位，不依赖于 <a class="reference internal" href="../conf/proj.html#proj-length-unit"><span class="std std-ref">PROJ_LENGTH_UNIT</span></a> 的值，以免导致同一脚本在不同机器上跑的结果不同</li>
+<li>长度单位 <code class="docutils literal"><span class="pre">p</span></code> 用于指定较小的长度量，比如线宽、文字大小等</li>
+<li>长度单位 <code class="docutils literal"><span class="pre">c</span></code> 和 <code class="docutils literal"><span class="pre">i</span></code> 用于指定较大的长度量，比如底图宽度、圆圈大小等</li>
+<li>尽量使用 SI 单位制（ <code class="docutils literal"><span class="pre">c</span></code> ）而不用 US 单位制（ <code class="docutils literal"><span class="pre">i</span></code> ），因为国人对于1厘米要比1英寸更有概念</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>5.1.2 距离单位<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>对于真实地球上的距离量而言，常用单位包括：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">d</span></code> ：弧度（degree of arc）</li>
+<li><code class="docutils literal"><span class="pre">m</span></code> ：弧分（minute of arc）</li>
+<li><code class="docutils literal"><span class="pre">s</span></code> ：弧秒（second of arc）</li>
+<li><code class="docutils literal"><span class="pre">k</span></code> ：千米（kilometer）</li>
+<li><code class="docutils literal"><span class="pre">e</span></code> ：米（meter） <strong>默认单位</strong></li>
+</ul>
+<p>还有几个不常用的单位：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">f</span></code> ：英尺（foot）</li>
+<li><code class="docutils literal"><span class="pre">M</span></code> ：Statute mile</li>
+<li><code class="docutils literal"><span class="pre">n</span></code> ：Nautical mile</li>
+<li><code class="docutils literal"><span class="pre">u</span></code> ：US Survey foot</li>
+</ul>
+<p>对于一个距离量而言，若不指定单位，则默认其单位为 <code class="docutils literal"><span class="pre">e</span></code> （即“米”），当然还是建议为每个距离量显式指定其单位，使得命令更加清晰。比如在地球上以某点为中心画一个特定半径的圆，半径为 <code class="docutils literal"><span class="pre">30</span></code> 等效于 <code class="docutils literal"><span class="pre">30e</span></code> 表示30米，半径为 <code class="docutils literal"><span class="pre">30k</span></code> 则表示30千米。</p>
+<p>对于距离量而言，还涉及到如何计算地球或任意星球上两点之间距离的问题。GMT 中提供了三种不同精度的距离计算方式，分别是 Flat Earth 距离、大圆路径距离和测地距离。</p>
+<dl class="docutils">
+<dt>大圆路径距离</dt>
+<dd>将地球当做球体，是GMT中默认使用的距离计算方式。比如距离量 <code class="docutils literal"><span class="pre">50k</span></code> 就默认用大圆弧距离来计算</dd>
+<dt>Flat Earth距离</dt>
+<dd>是大圆弧距离的一阶近似，通过在距离量前加上减号来使用这种计算方式。比如距离量 <code class="docutils literal"><span class="pre">-50k</span></code> 则使用Flat Earth方式计算距离</dd>
+<dt>测地距离</dt>
+<dd>计算距离时考虑了地球椭率，可以通过在距离量前加上加号来使用这种计算方式。比如距离 <code class="docutils literal"><span class="pre">+50k</span></code> 则使用大地测量方式来计算距离</dd>
+</dl>
+<p>从计算精度上看：大地测量距离&gt;大圆弧距离&gt;Flat Earth距离；从计算速度上看，Flat Earth距离&gt;大圆弧距离&gt;大地测量距离。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last">关于三种距离计算方式的详细介绍，见附录 <a class="reference internal" href="../appendix/calculate-distance.html"><span class="doc">三种距离计算方式</span></a> 。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="paper.html" class="btn btn-neutral float-right" title="5.2 画布" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../basics.html" class="btn btn-neutral" title="5 绘图基础" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

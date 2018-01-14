@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.9 转义序列 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="5 绘图基础" href="../basics.html"/>
+        <link rel="next" title="5.10 线条属性" href="lines.html"/>
+        <link rel="prev" title="5.8 特殊字符" href="special-characters.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../basics.html">5 绘图基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit.html">5.1 单位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paper.html">5.2 画布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">5.3 颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pen.html">5.4 画笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">5.5 填充</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">5.6 文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-fonts.html">5.7 特殊字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="special-characters.html">5.8 特殊字符</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.9 转义序列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.9.1 转义字符示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.9.2 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lines.html">5.10 线条属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectors.html">5.11 绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchors.html">5.12 锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embellishments.html">5.13 绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">5.14 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">6 输入与输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../basics.html">5 绘图基础</a> &raquo;</li>
+        
+      <li>5.9 转义序列</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basic/character-escape.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="lines.html" class="btn btn-neutral float-right" title="5.10 线条属性" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="special-characters.html" class="btn btn-neutral" title="5.8 特殊字符" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>5.9 转义序列<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>前面已经介绍了如何设置字体属性以及如何输出特殊字符，但是这还不够，无法实现上标、下标，无法在一个字符串内随意切换字体和颜色。由此，GMT引入了转义字符，给文本加入了更丰富的效果。</p>
+<p>在C语言中，转义字符是 <code class="docutils literal"><span class="pre">\</span></code> ；在GMT中，转义字符是 <code class="docutils literal"><span class="pre">&#64;</span></code> 。转义字符与一般字符合在一起构成了转义序列。GMT可以识别的转义字符在下表列出：</p>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-number">表 5.3 </span><span class="caption-text">GMT转义字符</span><a class="headerlink" href="#id4" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">转义字符</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;~</span></code></td>
+<td>打开/关闭Symbol（12号）字体</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;+</span></code></td>
+<td>打开/关闭上标</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;-</span></code></td>
+<td>打开/关闭下标</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;#</span></code></td>
+<td>打开/关闭大型小写字母</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;_</span></code></td>
+<td>打开/关闭下划线</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;%&lt;fontno&gt;%</span></code></td>
+<td>切换至另一字体； <code class="docutils literal"><span class="pre">&#64;%%</span></code> 重置回前一字体</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;:&lt;size&gt;:</span></code></td>
+<td>切换至另一文本尺寸； <code class="docutils literal"><span class="pre">&#64;::</span></code> 重置回前一尺寸</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;;&lt;color&gt;;</span></code></td>
+<td>切换至另一文本颜色； <code class="docutils literal"><span class="pre">&#64;;;</span></code> 重置回前一颜色</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;!</span></code></td>
+<td>用接下来的两个字符创建组合字符</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;&#64;</span></code></td>
+<td>输出 <code class="docutils literal"><span class="pre">&#64;</span></code> 符号自身</td>
+</tr>
+</tbody>
+</table>
+<p>对于一些常用的欧洲特殊字符，可以通过设置 <a class="reference internal" href="../conf/ps.html#ps-char-encoding"><span class="std std-ref">PS_CHAR_ENCODING</span></a> 来实现，GMT为其中的部分常见字符提供了转义序列，如下表：</p>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-number">表 5.4 </span><span class="caption-text">欧洲特殊字符</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="28%" />
+<col width="22%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><em>Code</em></th>
+<th class="head"><em>Effect</em></th>
+<th class="head"><em>Code</em></th>
+<th class="head"><em>Effect</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;E</span></code></td>
+<td>Æ</td>
+<td><code class="docutils literal"><span class="pre">&#64;e</span></code></td>
+<td>æ</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;O</span></code></td>
+<td>Ø</td>
+<td><code class="docutils literal"><span class="pre">&#64;o</span></code></td>
+<td>ø</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;A</span></code></td>
+<td>Å</td>
+<td><code class="docutils literal"><span class="pre">&#64;a</span></code></td>
+<td>å</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;C</span></code></td>
+<td>Ç</td>
+<td><code class="docutils literal"><span class="pre">&#64;c</span></code></td>
+<td>ç</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;N</span></code></td>
+<td>Ñ</td>
+<td><code class="docutils literal"><span class="pre">&#64;n</span></code></td>
+<td>ñ</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;U</span></code></td>
+<td>Ü</td>
+<td><code class="docutils literal"><span class="pre">&#64;u</span></code></td>
+<td>ü</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;s</span></code></td>
+<td>ß</td>
+<td><code class="docutils literal"><span class="pre">&#64;i</span></code></td>
+<td>í</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id2">
+<h2>5.9.1 转义字符示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/GMT_escape_examples.png"><img alt="../_images/GMT_escape_examples.png" src="../_images/GMT_escape_examples.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 5.10 </span><span class="caption-text">GMT转义序列示例</span></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>5.9.2 注意事项<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li>上标/下标不支持嵌套，即只支持一层上标/下标</li>
+<li><code class="docutils literal"><span class="pre">pstext</span></code> 命令中有选项可以在文本周围加上矩形框，该选项对转义序列无效</li>
+<li>转义序列需要成对存在，与括号类似，开启转义之后必须关闭转义；</li>
+<li>在Windows下，由于bat脚本中 <code class="docutils literal"><span class="pre">%</span></code> 表示变量，因此当你需要在GMT中使用百分号时，应使用 <code class="docutils literal"><span class="pre">%%</span></code> 来表示一个百分号，即bat脚本中的 <code class="docutils literal"><span class="pre">%%</span></code> 相当于字符 <code class="docutils literal"><span class="pre">%</span></code> ；切换字体时 <code class="docutils literal"><span class="pre">&#64;%%15%%</span></code> 相当于正常情况下的 <code class="docutils literal"><span class="pre">&#64;%15%</span></code> ；</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lines.html" class="btn btn-neutral float-right" title="5.10 线条属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="special-characters.html" class="btn btn-neutral" title="5.8 特殊字符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

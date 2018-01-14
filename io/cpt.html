@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.5 CPT文件 &mdash; GMT参考手册</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="GMT参考手册" href="../index.html"/>
+        <link rel="up" title="6 输入与输出" href="../io.html"/>
+        <link rel="next" title="6.6 NaN 数据" href="nan-data.html"/>
+        <link rel="prev" title="6.4 网格文件" href="grid-data.html"/>
+ 
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.4.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目 录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">1 前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">2 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">3 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">4 快速入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">5 绘图基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../io.html">6 输入与输出</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="format.html">6.1 数据格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postscript.html">6.2 PostScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table-data.html">6.3 表数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grid-data.html">6.4 网格文件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.5 CPT文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.5.1 CPT文件格式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">分类CPT文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">常规CPT文件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gmtcpt">6.5.2 GMT内置CPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.5.3 动态CPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.5.4 调整CPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">6.5.5 使用CPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.5.6 其他CPT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nan-data.html">6.6 NaN 数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netcdf.html">6.7 netCDF文件格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sun-raster.html">6.8 Sun光栅文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="native-grid.html">6.9 Native二进制网格格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grid-suffix.html">6.10 网格文件后缀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ogr-format.html">6.11 兼容OGR的GMT矢量数据格式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../options.html">7 标准选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configurations.html">8 配置GMT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proj.html">9 投影方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style.html">10 风格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">11 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">12 附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT参考手册</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../io.html">6 输入与输出</a> &raquo;</li>
+        
+      <li>6.5 CPT文件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/io/cpt.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="nan-data.html" class="btn btn-neutral float-right" title="6.6 NaN 数据" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="grid-data.html" class="btn btn-neutral" title="6.4 网格文件" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cpt">
+<h1>6.5 CPT文件<a class="headerlink" href="#cpt" title="永久链接至标题">¶</a></h1>
+<p>有些程序需要将用户数据用颜色、绘图或图案来表示。比如，在使用2D网格数据绘制彩图
+或灰度图时，需要为每个Z值或Z值范围指定要使用的颜色；再比如，有些程序需要根据Z值
+决定线条颜色、符号的填充色等。CPT文件的作用就是为每个Z值或Z值范围定义其对应的
+颜色。CPT全称是color palette table，也称为调色板或色标文件。</p>
+<p>CPT文件可以在 <code class="docutils literal"><span class="pre">grdimage</span></code> 、 <code class="docutils literal"><span class="pre">psxy</span></code> 、 <code class="docutils literal"><span class="pre">psxyz</span></code> 等命令中使用。通常，你可以
+使用 <code class="docutils literal"><span class="pre">makecpt</span></code> 或 <code class="docutils literal"><span class="pre">grd2cpt</span></code> 对已有的CPT（比如GMT内置的CPT）文件进行重采样，
+并适应你目前所使用的数据范围。当然，也可以自己手写CPT文件，或使用 <code class="docutils literal"><span class="pre">awk</span></code> 、
+<code class="docutils literal"><span class="pre">perl</span></code> 之类的文本处理工具自动生成CPT文件。</p>
+<p>由于GMT中可以用多种方式来指定颜色，因而GMT自带的或用户自己的CPT文件中通常含有
+如下注释语句:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># COLOR_MODEL = model</span>
+</pre></div>
+</div>
+<p>其中 <code class="docutils literal"><span class="pre">model</span></code> 可以取 RGB、hsv、cmyk，其指定了CPT文件中的颜色要如何进行解释。</p>
+<div class="section" id="id1">
+<h2>6.5.1 CPT文件格式<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>CPT文件有两种类型，一种适用于分类型数据，一种适用于常规数据。下面会逐一介绍。</p>
+<div class="section" id="id2">
+<h3>分类CPT文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>分类CPT文件适用于有分类型数据，对于这些数据而言，常规的数值操作是未定义的。
+比如，将陆地分成不同的类型，沙漠、森林、冰川等等，定义沙漠对应的值是1，森林
+对应的值是2，冰川定义的值是3。显然值取1.5是没有意义的。</p>
+<p>对于这种分类型数据，需要给每个分类指定一个 <code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> 。CPT文件中则规定了每个
+<code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> 所对应的颜色或填充图案，以及一个可选的标签（通常是类型名）。</p>
+<p>分类CPT文件的格式为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;key1&gt;      &lt;fill1&gt;     <span class="o">[</span><span class="p">;</span>&lt;label1&gt;<span class="o">]</span>
+&lt;key2&gt;      &lt;fill2&gt;     <span class="o">[</span><span class="p">;</span>&lt;label2&gt;<span class="o">]</span>
+...
+&lt;keyn&gt;      &lt;filln&gt;     <span class="o">[</span><span class="p">;</span>&lt;labeln&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>几点说明：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> 必须单调递增但不必连续</li>
+<li><code class="docutils literal"><span class="pre">&lt;fill&gt;</span></code> 可以是颜色，也可以是图案，见 <a class="reference internal" href="../basic/fill.html"><span class="doc">填充</span></a> 一节</li>
+<li>标签名以分号开头</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> 可以取几个特殊的值：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">B</span></code> ：小于 <code class="docutils literal"><span class="pre">&lt;key1&gt;</span></code> 的值的颜色，即背景色，默认值由 <a class="reference internal" href="../conf/color.html#color-background"><span class="std std-ref">COLOR_BACKGROUND</span></a> 控制</li>
+<li><code class="docutils literal"><span class="pre">F</span></code> ：大于 <code class="docutils literal"><span class="pre">&lt;keyn&gt;</span></code> 的值的颜色，即前景色，默认值由 <a class="reference internal" href="../conf/color.html#color-foreground"><span class="std std-ref">COLOR_FOREGROUND</span></a> 控制</li>
+<li><code class="docutils literal"><span class="pre">N</span></code> ：值为 <code class="docutils literal"><span class="pre">NaN</span></code> 所对应的颜色，默认值由 <a class="reference internal" href="../conf/color.html#color-nan"><span class="std std-ref">COLOR_NAN</span></a> 控制</li>
+</ul>
+<p>下面是一个分类CPT文件的示例:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">0</span>  yellow  <span class="p">;</span>desert
+<span class="m">1</span>  green   <span class="p">;</span>forest
+<span class="m">2</span>  red     <span class="p">;</span>iceland
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>常规CPT文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>对于连续变化的数据而言，可以为几个特定值指定颜色，其他值的颜色则通过插值计算
+得到。此时可以使用常规CPT文件。常规CPT文件的格式为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;z0&gt;     &lt;color_min_1&gt;  &lt;z1&gt;   &lt;color_max_1&gt;    <span class="o">[</span>&lt;A&gt;<span class="o">]</span>    <span class="o">[</span><span class="p">;</span>&lt;label&gt;<span class="o">]</span>
+&lt;z1&gt;     &lt;color_min_2&gt;  &lt;z2&gt;   &lt;color_max_2&gt;    <span class="o">[</span>&lt;A&gt;<span class="o">]</span>    <span class="o">[</span><span class="p">;</span>&lt;label&gt;<span class="o">]</span>
+...
+&lt;zn-1&gt;   &lt;color_min_n&gt;  &lt;zn&gt;   &lt;color_max_n&gt;    <span class="o">[</span>&lt;A&gt;<span class="o">]</span>    <span class="o">[</span><span class="p">;</span>&lt;label&gt;<span class="o">]</span>
+B   &lt;fill_back&gt;
+F   &lt;fill_fore&gt;
+N   &lt;fill_NaN&gt;
+</pre></div>
+</div>
+<p>以CPT文件中的第一行为例，其定义了一个Z值切片，切片范围为 <code class="docutils literal"><span class="pre">&lt;z0&gt;</span></code> 到 <code class="docutils literal"><span class="pre">&lt;z1&gt;</span></code> ，
+切片内每个Z值的颜色由 <code class="docutils literal"><span class="pre">&lt;color_min_1&gt;</span></code> 线性渐变为 <code class="docutils literal"><span class="pre">&lt;color_max_1&gt;</span></code> 。
+其他行同理。几点说明：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">&lt;z&gt;</span></code> 值必须单调递增</li>
+<li>每行的最大 <code class="docutils literal"><span class="pre">&lt;z&gt;</span></code> 必须与下一行的最小 <code class="docutils literal"><span class="pre">&lt;z&gt;</span></code> 相同，即Z切片之间不能存在间断</li>
+<li>若 <code class="docutils literal"><span class="pre">&lt;color_min_1&gt;</span></code> 与 <code class="docutils literal"><span class="pre">&lt;color_max_1&gt;</span></code> 相等，则 <code class="docutils literal"><span class="pre">&lt;z0&gt;</span></code> 到 <code class="docutils literal"><span class="pre">&lt;z1&gt;</span></code>
+范围内的所有Z值均使用相同的颜色</li>
+<li>若 <code class="docutils literal"><span class="pre">&lt;color_min_1&gt;</span></code> 使用了图案，则 <code class="docutils literal"><span class="pre">&lt;color_max_1&gt;</span></code> 必须设置为 <code class="docutils literal"><span class="pre">-</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;A&gt;</span></code> 是可选的，用于表明在使用 <code class="docutils literal"><span class="pre">psscale</span></code> 命令绘制色标时要如何标注。
+<code class="docutils literal"><span class="pre">&lt;A&gt;</span></code> 可以取 <code class="docutils literal"><span class="pre">L</span></code> 、 <code class="docutils literal"><span class="pre">U</span></code> 、 <code class="docutils literal"><span class="pre">B</span></code> ，表示选择每个Z切片的下限、上限或者
+上下限作为标注。</li>
+<li><code class="docutils literal"><span class="pre">;&lt;lable&gt;</span></code> 是切片的标签，当 <code class="docutils literal"><span class="pre">psscale</span></code> 使用 <code class="docutils literal"><span class="pre">-L</span></code> 选项时会在用 <code class="docutils literal"><span class="pre">&lt;label&gt;</span></code> 作为标注</li>
+<li><code class="docutils literal"><span class="pre">B|F|N</span></code> 语句分别用于设置背景色（默认值为 <a class="reference internal" href="../conf/color.html#color-background"><span class="std std-ref">COLOR_BACKGROUND</span></a> ）、
+前景色（默认值为 <a class="reference internal" href="../conf/color.html#color-foreground"><span class="std std-ref">COLOR_FOREGROUND</span></a> ）和
+NaN值的颜色（默认值为 <a class="reference internal" href="../conf/color.html#color-nan"><span class="std std-ref">COLOR_NAN</span></a> ）</li>
+<li><code class="docutils literal"><span class="pre">B|F|N</span></code> 语句要放在CPT文件的开头或结尾</li>
+</ol>
+<p>下面是一个常规CPT文件的示例:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">30</span>    p16+200  <span class="m">80</span>   -
+<span class="m">80</span>    -        <span class="m">100</span>  -
+<span class="m">100</span>   <span class="m">200</span>/0/0  <span class="m">200</span>  <span class="m">255</span>/255/0
+<span class="m">200</span>   yellow   <span class="m">300</span>  green
+</pre></div>
+</div>
+<p>本例中</p>
+<ul class="simple">
+<li>30&lt;z&lt;80：以200dpi分辨率的16号图案填充</li>
+<li>80&lt;z&lt;100：直接跳过</li>
+<li>100&lt;z&lt;200：从深红色线性变化成黄色</li>
+<li>200&lt;z&lt;300：从黄色线性变化成绿色</li>
+</ul>
+</div>
+</div>
+<div class="section" id="gmtcpt">
+<h2>6.5.2 GMT内置CPT<a class="headerlink" href="#gmtcpt" title="永久链接至标题">¶</a></h2>
+<p>GMT内置了43个常规CPT文件和一个分类CPT文件，位于 <code class="file docutils literal"><span class="pre">$</span><em><span class="pre">GMTHOME</span></em><span class="pre">/share/cpt</span></code> 目录中。</p>
+<p>下图给出了GMT内置的44个CPT文件，每张图上边的色标为原始CPT，用如下命令绘制:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt psscale -D5c/2c+w10c/1c+h+jTC -B0 -C&lt;cpt&gt; &gt; test.ps
+</pre></div>
+</div>
+<p>下边的色标是经过 <code class="docutils literal"><span class="pre">makecpt</span></code> 离散成8部分后的色标，用如下命令绘制:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt makecpt -C&lt;cpt&gt; -T-1/1/0.25 &gt; new.cpt
+gmt psscale -D5c/2c+w10c/1c+h+jTC -Bf0.25 -Cnew.cpt &gt; test.ps
+</pre></div>
+</div>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/GMT_CPT_1.png"><img alt="../_images/GMT_CPT_1.png" src="../_images/GMT_CPT_1.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 6.2 </span><span class="caption-text">GMT内置CPT示例1</span></p>
+</div>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/GMT_CPT_2.png"><img alt="../_images/GMT_CPT_2.png" src="../_images/GMT_CPT_2.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 6.3 </span><span class="caption-text">GMT内置CPT示例2</span></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>6.5.3 动态CPT<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>GMT 内置的 CPT 文件都是动态的。</p>
+<p>所有动态CPT文件都按照两种方式中的一种进行了归一化：</p>
+<ol class="arabic">
+<li><p class="first">如果为存在分界（hinge）的区域填色（如地形颜色在高程为0的海岸线处发生非连续的
+分界）那么CPT的z值在一侧为-1到0；另一侧为0到1；分界线上为0。CPT文件中对
+分界线的值注释如下:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># HINGE = &lt;hinge-value&gt;</span>
+</pre></div>
+</div>
+<p>按照这种方式归一化的内置CPT包括 <code class="docutils literal"><span class="pre">earth</span></code> <code class="docutils literal"><span class="pre">etopo1</span></code> <code class="docutils literal"><span class="pre">geo</span></code>  <code class="docutils literal"><span class="pre">globe</span></code>
+<code class="docutils literal"><span class="pre">polar</span></code> <code class="docutils literal"><span class="pre">red2green</span></code> <code class="docutils literal"><span class="pre">relief</span></code> <code class="docutils literal"><span class="pre">sealand</span></code> <code class="docutils literal"><span class="pre">split</span></code> <code class="docutils literal"><span class="pre">terra</span></code>
+<code class="docutils literal"><span class="pre">topo</span></code> <code class="docutils literal"><span class="pre">world</span></code></p>
+</li>
+<li><p class="first">如果不存在颜色的分界，则CPT的z值归一化为0到1之间。实际使用中，CPT的z值会拉伸
+到用户指定的范围，包括两种拉伸模式：</p>
+<ol class="arabic">
+<li><p class="first">默认指定一个数值范围，实际应用中（如地形渲染）再拉伸到真实值。见CPT文件中
+的RANGE注释:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># RANGE = &lt;zmin/zmax&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">若未给定范围，则扩展到数据的极限值</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>下图展示了动态的内置CPT如何拉伸适用于用户自定义数据，绘制命令如下:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">PS</span><span class="o">=</span>GMT_CPT_3.ps
+
+gmt makecpt -Cglobe -T-8000/3000 &gt; t.cpt
+
+gmt psscale -Ct.cpt -Baf -Dx0/0+w4.5i/0.1i+h -K -P &gt; <span class="nv">$PS</span>
+gmt psscale -Cglobe -Baf -Dx0/0+w4.5i/0.1i+h -Y0.5i  -O &gt;&gt; <span class="nv">$PS</span>
+
+rm gmt.*
+rm t.cpt
+</pre></div>
+</div>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/GMT_CPT_3.png"><img alt="../_images/GMT_CPT_3.png" src="../_images/GMT_CPT_3.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 6.4 </span><span class="caption-text">动态CPT的拉伸</span></p>
+</div>
+<p>原始的内置CPT（globe，上图）的初始范围为-10000至10000，颜色不连续处的分界值
+（hinge）为0，小于0的部分为海蓝色系，大于0的部分为大地色系。但实际上，我们要
+绘制的区域高程值是非对称的，从-8000米到3000米（下图）。由于hing值的存在，负高程
+依旧由海蓝色拉伸填充，正高程则由大地色压缩填充。</p>
+<p>注：若要实现hinge分界效果，<code class="docutils literal"><span class="pre">makecpt</span></code> 命令中的 <code class="docutils literal"><span class="pre">-T</span></code> 选项不可设置 <code class="docutils literal"><span class="pre">/&lt;z_int&gt;</span></code>。</p>
+</div>
+<div class="section" id="id5">
+<h2>6.5.4 调整CPT<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>GMT模块 <code class="docutils literal"><span class="pre">makecpt</span></code> 和 <code class="docutils literal"><span class="pre">grd2cpt</span></code> 可以内置CPT文件为基础，针对用户自己的数据
+制作专门的CPT文件；也可以将用户自定义CPT重新调整为一个新的范围、颜色倒转甚至
+屏蔽部分颜色的新色标文件。比如某个内置CPT文件定义了从0到1颜色从蓝色变成红色，
+用 <code class="docutils literal"><span class="pre">makecpt</span></code> 可以制作一个从1000到3000颜色从蓝色变成红色的CPT文件。不同的是，
+<code class="docutils literal"><span class="pre">makecpt</span></code> 常用于已知极值范围的表数据，而 <code class="docutils literal"><span class="pre">grd2cpt</span></code> 常用于将cpt适用于一个
+或多个格网数据。此外，两者均可通过以下方式翻转颜色：</p>
+<ol class="arabic simple">
+<li>利用 <code class="docutils literal"><span class="pre">-Iz</span></code> 选项倒转CPT的z值指向（不包括前景色、背景色）。用于数据的正负
+颜色表示和惯例不符的情况（比如用正值表示海平面以下的深度，而不是惯常的负高程）。</li>
+<li>利用 <code class="docutils literal"><span class="pre">-Ic</span></code> 选项翻转颜色的顺序，包括前景色和背景色（与 <code class="docutils literal"><span class="pre">psscale</span></code> 的宽度
+设为负值效果一致）。</li>
+<li><code class="docutils literal"><span class="pre">-Icz</span></code> 表示以上两种效果的叠加，即颜色顺序不变，只调转了前景色和背景色</li>
+<li>利用 <code class="docutils literal"><span class="pre">-G</span></code> 选项提取主CPT的一部分颜色</li>
+<li>最后，将初始的内置CPT或修改后的CPT拉伸为自定义数据范围</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">J</span><span class="o">=</span>X20c
+<span class="nv">R</span><span class="o">=</span><span class="m">1</span>/10/1/10
+<span class="nv">PS</span><span class="o">=</span>GMT_CPT_4.ps
+<span class="nv">SIZE</span><span class="o">=</span>w15c/0.25c
+
+gmt makecpt -Chaxby -T-10/10/1 &gt; Icpt.cpt
+gmt makecpt -Chaxby -T-10/10/1 -Iz &gt; Icpt_z.cpt
+gmt makecpt -Chaxby -T-10/10/1 -Ic &gt; Icpt_c.cpt
+gmt makecpt -Chaxby -T-10/10/1 -Icz &gt; Icpt_cz.cpt
+
+gmt psxy -R<span class="nv">$R</span> -J<span class="nv">$J</span> -K -T &gt; <span class="nv">$PS</span>
+
+gmt psscale -R -J -CIcpt.cpt   -Dn0.5/0.25+jCM+<span class="nv">$SIZE</span>+h+e+n -B+l<span class="s2">&quot;Master CPT&quot;</span>  -K -O &gt;&gt; <span class="nv">$PS</span>
+gmt psscale -R -J -CIcpt_c.cpt -Dn0.5/0.4+jCM+<span class="nv">$SIZE</span>+h+e+n  -B+l<span class="s2">&quot;-Ic&quot;</span>  -K -O &gt;&gt; <span class="nv">$PS</span>
+gmt psscale -R -J -CIcpt_z.cpt -Dn0.5/0.55+jCM+<span class="nv">$SIZE</span>+h+e+n -B+l<span class="s2">&quot;-Iz&quot;</span>  -K -O &gt;&gt; <span class="nv">$PS</span>
+gmt psscale -R -J -CIcpt_cz.cpt -Dn0.5/0.7+jCM+<span class="nv">$SIZE</span>+h+e+n -B+l<span class="s2">&quot;-Icz&quot;</span> -K -O &gt;&gt; <span class="nv">$PS</span>
+
+gmt psxy -R -J -O -T &gt;&gt; <span class="nv">$PS</span>
+
+rm gmt.*
+rm Icpt*.cpt
+</pre></div>
+</div>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/GMT_CPT_4.png"><img alt="../_images/GMT_CPT_4.png" src="../_images/GMT_CPT_4.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">图 6.5 </span><span class="caption-text">CPT颜色翻转</span></p>
+</div>
+<p>注：这些CPT的调整选项顺序也是有优先级的。比如 <code class="docutils literal"><span class="pre">-Iz</span></code> 使用后，所有其他的更改
+都是基于z值反向的前提进行的。</p>
+</div>
+<div class="section" id="id6">
+<h2>6.5.5 使用CPT<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>命令行指定CPT文件名后，GMT会依次在当前目录、 <code class="file docutils literal"><span class="pre">~/.gmt</span></code> 和 <code class="file docutils literal"><span class="pre">$</span><em><span class="pre">GMTHOME</span></em><span class="pre">/share/cpt/</span></code>
+目录下寻找CPT文件，如果找不到还会加上后缀 <code class="docutils literal"><span class="pre">.cpt</span></code> 寻找。</p>
+<p>在文件名后加上后缀 <code class="docutils literal"><span class="pre">+u|U&lt;unit&gt;</span></code> 还可以对CPT文件中的Z值进行缩放。</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">filename.cpt+u&lt;unit&gt;</span></code> 可以将Z值从 <code class="docutils literal"><span class="pre">&lt;unit&gt;</span></code> 变换为以米为单位</li>
+<li><code class="docutils literal"><span class="pre">filename.cpt+U&lt;unit&gt;</span></code> 可以将Z值从以米为单位变换成 <code class="docutils literal"><span class="pre">&lt;unit&gt;</span></code></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>6.5.6 其他CPT<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>更多的CPT可以访问： <a class="reference external" href="http://soliton.vm.bytemark.co.uk/pub/cpt-city/">http://soliton.vm.bytemark.co.uk/pub/cpt-city/</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+
+<!-- gitalk 脚本-->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '0e924d7b349247809740',
+    clientSecret: '3034f594a0e920fc7b0294ef6ec3ec884e4e819e',
+    owner: 'gmt-china',
+    repo: 'gitalk',
+    admin: ['zhaozhiyuan1989','cehui07226','NothingIsBig','seisman','SeisPider','wangliang1989'],
+    body: location.href,
+  });
+gitalk.render('gitalk-container');
+</script>
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nan-data.html" class="btn btn-neutral float-right" title="6.6 NaN 数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="grid-data.html" class="btn btn-neutral" title="6.4 网格文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, GMT中文社区.
+      最后更新于 2018年01月14日.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.4.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
